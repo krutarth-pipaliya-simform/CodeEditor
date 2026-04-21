@@ -1,10 +1,13 @@
 main {
     flex: 5;
     background-color: #252525;
+<<<<<<< HEAD
     display: flex;
     flex-direction: column;
     overflow: hidden;
     position: relative;
+=======
+>>>>>>> 21bb9ac (feat: menubar add with styles)
 }
 
 .menubar-list {
@@ -14,12 +17,15 @@ main {
     padding: var(--padding-md);
     align-items: center;
     border-bottom: 2px solid var(--color-border);
+<<<<<<< HEAD
     overflow-x: auto;
 }
 
 .menubar-list-item {
     display: flex;
     flex-wrap: nowrap;
+=======
+>>>>>>> 21bb9ac (feat: menubar add with styles)
 }
 
 .menu-button {
