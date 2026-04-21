@@ -63,3 +63,9 @@ main {
         border-color: white;
     }
 }
+
+.content-area {
+    padding: var(--border-radius-md);
+    overflow: auto;
+    color: white;
+}
