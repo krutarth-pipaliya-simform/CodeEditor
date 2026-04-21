@@ -12,4 +12,10 @@ header {
     background-color: var(--color-dark);
     color: var(--color-font-white);
     overflow-x: auto;
+    border-bottom: 2px solid var(--color-border);
+}
+
+.main-container {
+    flex: 1;
+    display: flex;
 }
