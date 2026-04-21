@@ -4,6 +4,7 @@ main {
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    position: relative;
 }
 
 .menubar-list {
@@ -45,4 +46,20 @@ main {
     border: 2px solid var(--color-border);
     padding: var(--padding-md);
     border-radius: var(--border-radius-sm);
+}
+
+.aside-toggle {
+    position: absolute;
+    top: 50%;
+    padding: var(--padding-md) var(--padding-sm);
+    background-color: var(--color-dark);
+    border: 2px solid var(--color-border);
+    border-radius: var(--border-radius-sm);
+    left: -0.5rem;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+        border-color: white;
+    }
 }
