@@ -15,4 +15,10 @@ aside {
     padding: var(--padding-md);
     border-radius: 0.6rem;
     border-color: var(--color-border);
+    border-style: solid;
+
+    &:hover {
+        border-color: white;
+        box-shadow: 0 0 5px gray;
+    }
 }
