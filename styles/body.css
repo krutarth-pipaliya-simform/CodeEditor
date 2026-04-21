@@ -1,0 +1,13 @@
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: var(--padding-l);
+    background-color: var(--color-dark);
+    color: var(--color-font-white);
+}
