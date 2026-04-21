@@ -1,6 +1,9 @@
 h1 {
     white-space: nowrap;
+<<<<<<< HEAD
     font-size: clamp(1.5rem, 8vw, 2rem);
+=======
+>>>>>>> edc5a49 (feat: complete header part)
 }
 
 .current-user {
@@ -22,6 +25,7 @@ h1 {
 
 .current-user-name {
     white-space: nowrap;
+<<<<<<< HEAD
 
     @media (max-width: 420px) {
         display: none;
@@ -29,4 +33,6 @@ h1 {
     @media (max-width: 250px) {
         display: block;
     }
+=======
+>>>>>>> edc5a49 (feat: complete header part)
 }
