@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "type": "module",
     "devDependencies": {
         "typescript": "^6.0.3"
@@ -6,4 +7,7 @@
     "scripts": {
         "build": "tsc"
     }
+=======
+    "type": "module"
+>>>>>>> 4d1ee7e (feat: add toggle functionality)
 }
