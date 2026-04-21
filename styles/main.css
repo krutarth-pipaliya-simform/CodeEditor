@@ -1,3 +1,39 @@
 main {
     flex: 5;
+    background-color: #252525;
+}
+
+.menubar-list {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    padding: var(--padding-md);
+    align-items: center;
+    border-bottom: 2px solid var(--color-border);
+}
+
+.menu-button {
+    background-color: var(--color-button);
+    color: var(--color-font-white);
+    padding: var(--padding-md);
+    border-radius: var(--border-radius-md);
+    border-color: var(--color-border);
+    border-style: solid;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+
+    &:hover {
+        border-color: white;
+        box-shadow: 0 0 5px gray;
+    }
+}
+
+.file-search-input {
+    background-color: var(--color-dark);
+    color: white;
+    outline: none;
+    border: 2px solid var(--color-border);
+    padding: var(--padding-md);
+    border-radius: var(--border-radius-sm);
 }
