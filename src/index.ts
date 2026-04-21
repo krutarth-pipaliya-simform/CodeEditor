@@ -1,9 +1,3 @@
-import { runTest } from "./test/index.js";
+import { startEvents } from "./events/index.js";
 
-try{
-    await runTest();
-}
-catch(err)
-{
-    console.error("runTest failed:", err);
-}
+startEvents();
