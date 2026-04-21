@@ -1,14 +1,15 @@
-body{
+body {
     height: 100vh;
     display: flex;
     flex-direction: column;
     font-family: "Inter", sans-serif;
 }
 
-header{
+header {
     display: flex;
     justify-content: space-between;
     padding: var(--padding-l);
     background-color: var(--color-dark);
     color: var(--color-font-white);
+    overflow-x: auto;
 }

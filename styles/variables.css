@@ -1,5 +1,7 @@
-:root{
-    --padding-l : 1rem;
-    --color-dark : #111111;
-    --color-font-white : white;
+:root {
+    --padding-l: 1rem;
+    --padding-md: 0.5rem;
+    --color-dark: #111111;
+    --color-font-white: white;
+    --color-background-initial: #b7e211;
 }
