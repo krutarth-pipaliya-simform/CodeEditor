@@ -1,14 +1,6 @@
 import { runTest } from "./test/index.js";
 import { startEvents } from "./events/index.js";
+import { initDB } from "./storage/index.js";
 
-try{
-    await runTest();
-    startEvents();
-}
-catch(err)
-{
-    console.error("runTest failed:", err);
-}
-
-
-
+startEvents();
+await initDB();
