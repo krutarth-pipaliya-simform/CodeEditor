@@ -1,10 +1,11 @@
-import { initDB } from "./storage/index";
+import { initDB } from "./storage/index.js";
 import {
   addDocument,
   getDocument,
   updateDocument,
-} from "./storage/documentStore";
-import { addOperation, getOperations } from "./storage/operationStore";
+} from "./storage/documentStore.js";
+import { addOperation, getOperations } from "./storage/operationStore.js";
+import type { Op } from "./types/storageTypes.js";
 
 async function runTest() {
   await initDB();
@@ -46,7 +47,7 @@ async function runTest() {
 
   let content = doc.content;
 
-  ops.forEach((op) => {
+  ops.forEach((op:Op) => {
     if (op.type === "insert") {
       content =
         content.slice(0, op.position) + op.value + content.slice(op.position);
