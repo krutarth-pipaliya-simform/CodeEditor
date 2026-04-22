@@ -44,6 +44,4 @@ export type Tab = {
 
 export type User = {
     userId: string;
-    username: string;
-    createdAt: number;
 };

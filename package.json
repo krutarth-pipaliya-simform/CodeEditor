@@ -1,8 +1,4 @@
 {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> a1f8a6f (chore: add tsc as dev dependency)
     "type": "module",
     "devDependencies": {
         "typescript": "^6.0.3"
@@ -10,10 +6,4 @@
     "scripts": {
         "build": "tsc"
     }
-<<<<<<< HEAD
-=======
-    "type": "module"
->>>>>>> 4d1ee7e (feat: add toggle functionality)
-=======
->>>>>>> a1f8a6f (chore: add tsc as dev dependency)
 }
