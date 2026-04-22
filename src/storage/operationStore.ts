@@ -1,5 +1,5 @@
-import { getDB } from "../storage/index";
-import type { Op } from "../types/storageTypes";
+import { getDB } from "../storage/index.js";
+import type { Op } from "../types/storageTypes.js";
 
 export function addOperation(op: Op): Promise<void> {
   return new Promise((resolve, reject) => {

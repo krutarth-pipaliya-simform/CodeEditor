@@ -1,5 +1,5 @@
-import { getDB } from "../storage/index";
-import type { Doc } from "../types/storageTypes";
+import { getDB } from "../storage/index.js";
+import type { Doc } from "../types/storageTypes.js";
 
 export function addDocument(doc: Doc): Promise<void> {
   return new Promise((resolve, reject) => {
