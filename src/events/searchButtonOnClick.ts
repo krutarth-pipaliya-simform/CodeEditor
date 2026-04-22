@@ -20,17 +20,17 @@ export default function searchButtonOnClick() {
 }
 
 function addHilghlight(query: string) {
-    const lines = document.querySelectorAll(".line-content");
-    for (let line of lines) {
-        line.innerHTML = line.innerHTML.replaceAll(
+    const code = document.querySelector(".code-area");
+    if (code instanceof HTMLDivElement) {
+        code.innerHTML = code.innerHTML.replaceAll(
             query,
             `<span class="highlighted" data-text="${query}">${query}</span>`,
         );
     }
+
     const highlights = document.querySelectorAll(".highlighted");
     for (let highlight of highlights) {
         if (highlight instanceof HTMLSpanElement) {
-            console.log("added");
             observer.observe(highlight, {
                 childList: true,
                 subtree: true,
