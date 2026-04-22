@@ -75,3 +75,6 @@ main {
 .user{
     margin-left: -10px;
 }
+.file-search-end-button {
+    display: none;
+}
