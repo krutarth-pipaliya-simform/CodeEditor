@@ -30,6 +30,13 @@ export function initDB(): Promise<IDBDatabase> {
       if (!db.objectStoreNames.contains("tabs")) {
         db.createObjectStore("tabs", { keyPath: "tabId" });
       }
+
+      // Users
+      if (!db.objectStoreNames.contains("users")) {
+        db.createObjectStore("users", {
+          keyPath: "userId",
+        });
+      }
     };
 
     request.onsuccess = () => {

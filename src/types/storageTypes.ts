@@ -37,3 +37,9 @@ export type Tab = {
   docId: number;
   lastSeen: number;
 };
+
+export type User = {
+  userId: string;
+  username: string;
+  createdAt: number;
+};
