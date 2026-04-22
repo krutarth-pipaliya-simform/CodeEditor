@@ -1,4 +1,4 @@
-.content-list{
+.content-list {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -6,27 +6,32 @@
     overflow: auto;
 }
 
-.content-list-item{
+.content-list-item {
     display: flex;
     gap: 1rem;
 }
 
-.line-number{
+.line-number {
     color: var(--color-border);
 }
 
-.line-numbers-column-list{
+.line-numbers-column-list {
     list-style: none;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.line-content{
+.line-content {
     text-wrap: nowrap;
 }
 
 .line-content:focus {
     outline: none;
     box-shadow: none;
+}
+
+.highlighted {
+    background-color: var(--color-highlight);
+    color: black;
 }
