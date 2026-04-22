@@ -3,6 +3,7 @@
 @import url("./header.css");
 @import url("./aside.css");
 @import url("./main.css");
+@import url("./prompt.css");
 
 * {
     box-sizing: border-box;
