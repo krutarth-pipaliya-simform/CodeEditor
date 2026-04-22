@@ -15,22 +15,28 @@ const observer = new MutationObserver((MutationRecords) => {
         let lastNumber = lastLi.dataset.lineNumber
             ? +lastLi.dataset.lineNumber
             : 0;
-        if (
+        console.log("ran");
+        while (
             codeArea &&
             codeArea.childElementCount &&
             lastNumber > codeArea.childElementCount
-        )
-            lastLi.remove();
-        else if (
+        ) {
+            lastLi?.remove();
+            lastNumber--;
+            lastLi = ul?.lastElementChild;
+        }
+        while (
             codeArea &&
             codeArea.childElementCount &&
             lastNumber < codeArea.childElementCount
         ) {
+            console.log(lastNumber, codeArea.childElementCount);
             const newLi = document.createElement("li");
             newLi.classList.add("line-number");
-            newLi.dataset.lineNumber = String(codeArea.childElementCount);
-            newLi.innerText = String(codeArea.childElementCount);
-            lastLi.after(newLi);
+            newLi.dataset.lineNumber = String(++lastNumber);
+            newLi.innerText = String(lastNumber);
+            lastLi?.after(newLi);
+            lastLi = newLi;
         }
     }
 });
