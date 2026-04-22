@@ -69,3 +69,6 @@ main {
     overflow: auto;
     color: white;
 }
+.user{
+    margin-left: -10px;
+}
