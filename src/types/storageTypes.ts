@@ -24,11 +24,7 @@ export type Operations = {
 export type Cursor = {
     cursorId: string; // userId or tabId
     documentId: number;
-<<<<<<< HEAD
     username: string;
-=======
-    userId: string;
->>>>>>> 4cae753 (fix:change op type to Operations and add try catch blocks around probable awaits)
     position: number;
     updatedAt: number;
 };
