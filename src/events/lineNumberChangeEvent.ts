@@ -15,9 +15,17 @@ const observer = new MutationObserver((MutationRecords) => {
         let lastNumber = lastLi.dataset.lineNumber
             ? +lastLi.dataset.lineNumber
             : 0;
-        if (codeArea && lastNumber > codeArea.childElementCount)
+        if (
+            codeArea &&
+            codeArea.childElementCount &&
+            lastNumber > codeArea.childElementCount
+        )
             lastLi.remove();
-        else if (codeArea && lastNumber < codeArea.childElementCount) {
+        else if (
+            codeArea &&
+            codeArea.childElementCount &&
+            lastNumber < codeArea.childElementCount
+        ) {
             const newLi = document.createElement("li");
             newLi.classList.add("line-number");
             newLi.dataset.lineNumber = String(codeArea.childElementCount);
