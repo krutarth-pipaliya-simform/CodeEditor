@@ -47,7 +47,7 @@ async function runTest() {
 
   let content = doc.content;
 
-  ops.forEach((op:Op) => {
+  ops.forEach((op: Op) => {
     if (op.type === "insert") {
       content =
         content.slice(0, op.position) + op.value + content.slice(op.position);
@@ -64,4 +64,4 @@ async function runTest() {
 
   console.log("Document Updated");
 }
-await runTest()
+await runTest();
