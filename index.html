@@ -1,120 +1,123 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Krutarth Pipaliya, Jenith Panchal" />
-    <meta name="description" content="Colaborate with peers to work together" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles/index.css" />
-    <script type="module" src="dist/index.js" defer></script>
-    <title>Code Editor</title>
-  </head>
-  <body>
-    <header>
-      <h1>Code together!</h1>
-      <div class="current-user">
-        <div class="current-user-initial">K</div>
-        <div class="current-user-name">Krutarth Pipaliya</div>
-      </div>
-    </header>
-    <div class="main-container">
-      <aside>
-        <button class="create-file-button">Create A File</button>
-        <ul class="file-list">
-          <li class="file-list-item">index.html</li>
-          <li class="file-list-item">style.css</li>
-          <li class="file-list-item">index.js</li>
-          <li class="file-list-item">index.html</li>
-          <li class="file-list-item">style.css</li>
-          <li class="file-list-item">index.js</li>
-          <li class="file-list-item">index.html</li>
-          <li class="file-list-item">style.css</li>
-          <li class="file-list-item">index.js</li>
-          <li class="file-list-item">index.html</li>
-          <li class="file-list-item">style.css</li>
-          <li class="file-list-item">index.js</li>
-          <li class="file-list-item">index.html</li>
-          <li class="file-list-item">style.css</li>
-          <li class="file-list-item">index.js</li>
-          <li class="file-list-item">index.html</li>
-          <li class="file-list-item">style.css</li>
-          <li class="file-list-item">index.js</li>
-          <li class="file-list-item">index.html</li>
-          <li class="file-list-item">style.css</li>
-          <li class="file-list-item">index.js</li>
-          <li class="file-list-item">index.html</li>
-          <li class="file-list-item">style.css</li>
-          <li class="file-list-item">index.js</li>
-          <li class="file-list-item">index.html</li>
-          <li class="file-list-item">style.css</li>
-          <li class="file-list-item">index.js</li>
-          <li class="file-list-item">index.html</li>
-          <li class="file-list-item">style.css</li>
-          <li class="file-list-item">index.js</li>
-        </ul>
-      </aside>
-      <main>
-        <div class="aside-toggle">
-          <svg
-            fill="white"
-            height="1rem"
-            width="1rem"
-            version="1.1"
-            id="XMLID_308_"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            viewBox="0 0 24 24"
-            xml:space="preserve"
-          >
-            <g id="drag">
-              <path
-                d="M10,6H6V2h4V6z M18,2h-4v4h4V2z M10,10H6v4h4V10z M18,10h-4v4h4V10z M10,18H6v4h4V18z M18,18h-4v4h4V18z"
-              />
-            </g>
-          </svg>
-        </div>
-        <div class="menubar">
-          <ul class="menubar-list">
-            <li class="menubar-list-item">
-              <button class="menu-button" aria-label="undo">
-                <svg
-                  fill="white"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="1rem"
-                  height="1rem"
-                  viewBox="0 0 52 52"
-                  enable-background="new 0 0 52 52"
-                  xml:space="preserve"
-                >
-                  <path
-                    d="M30.3,12.6c10.4,0,18.9,8.4,18.9,18.9s-8.5,18.9-18.9,18.9h-8.2c-0.8,0-1.3-0.6-1.3-1.4v-3.2
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="Krutarth Pipaliya, Jenith Panchal" />
+        <meta
+            name="description"
+            content="Colaborate with peers to work together"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="styles/index.css" />
+        <script type="module" src="dist/index.js" defer></script>
+        <title>Code Editor</title>
+    </head>
+    <body>
+        <header>
+            <h1>Code together!</h1>
+            <div class="current-user">
+                <div class="current-user-initial">K</div>
+                <div class="current-user-name">Krutarth Pipaliya</div>
+            </div>
+        </header>
+        <div class="main-container">
+            <aside>
+                <button class="create-file-button">Create A File</button>
+                <ul class="file-list">
+                    <li class="file-list-item">index.html</li>
+                    <li class="file-list-item">style.css</li>
+                    <li class="file-list-item">index.js</li>
+                    <li class="file-list-item">index.html</li>
+                    <li class="file-list-item">style.css</li>
+                    <li class="file-list-item">index.js</li>
+                    <li class="file-list-item">index.html</li>
+                    <li class="file-list-item">style.css</li>
+                    <li class="file-list-item">index.js</li>
+                    <li class="file-list-item">index.html</li>
+                    <li class="file-list-item">style.css</li>
+                    <li class="file-list-item">index.js</li>
+                    <li class="file-list-item">index.html</li>
+                    <li class="file-list-item">style.css</li>
+                    <li class="file-list-item">index.js</li>
+                    <li class="file-list-item">index.html</li>
+                    <li class="file-list-item">style.css</li>
+                    <li class="file-list-item">index.js</li>
+                    <li class="file-list-item">index.html</li>
+                    <li class="file-list-item">style.css</li>
+                    <li class="file-list-item">index.js</li>
+                    <li class="file-list-item">index.html</li>
+                    <li class="file-list-item">style.css</li>
+                    <li class="file-list-item">index.js</li>
+                    <li class="file-list-item">index.html</li>
+                    <li class="file-list-item">style.css</li>
+                    <li class="file-list-item">index.js</li>
+                    <li class="file-list-item">index.html</li>
+                    <li class="file-list-item">style.css</li>
+                    <li class="file-list-item">index.js</li>
+                </ul>
+            </aside>
+            <main>
+                <div class="aside-toggle">
+                    <svg
+                        fill="white"
+                        height="1rem"
+                        width="1rem"
+                        version="1.1"
+                        id="XMLID_308_"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        viewBox="0 0 24 24"
+                        xml:space="preserve"
+                    >
+                        <g id="drag">
+                            <path
+                                d="M10,6H6V2h4V6z M18,2h-4v4h4V2z M10,10H6v4h4V10z M18,10h-4v4h4V10z M10,18H6v4h4V18z M18,18h-4v4h4V18z"
+                            />
+                        </g>
+                    </svg>
+                </div>
+                <div class="menubar">
+                    <ul class="menubar-list">
+                        <li class="menubar-list-item">
+                            <button class="menu-button" aria-label="undo">
+                                <svg
+                                    fill="white"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="1rem"
+                                    height="1rem"
+                                    viewBox="0 0 52 52"
+                                    enable-background="new 0 0 52 52"
+                                    xml:space="preserve"
+                                >
+                                    <path
+                                        d="M30.3,12.6c10.4,0,18.9,8.4,18.9,18.9s-8.5,18.9-18.9,18.9h-8.2c-0.8,0-1.3-0.6-1.3-1.4v-3.2
 	                                c0-0.8,0.6-1.5,1.4-1.5h8.1c7.1,0,12.8-5.7,12.8-12.8s-5.7-12.8-12.8-12.8H16.4c0,0-0.8,0-1.1,0.1c-0.8,0.4-0.6,1,0.1,1.7l4.9,4.9
 	                                c0.6,0.6,0.5,1.5-0.1,2.1L18,29.7c-0.6,0.6-1.3,0.6-1.9,0.1l-13-13c-0.5-0.5-0.5-1.3,0-1.8L16,2.1c0.6-0.6,1.6-0.6,2.1,0l2.1,2.1
 	                                c0.6,0.6,0.6,1.6,0,2.1l-4.9,4.9c-0.6,0.6-0.6,1.3,0.4,1.3c0.3,0,0.7,0,0.7,0L30.3,12.6z"
-                  />
-                </svg>
-                undo
-              </button>
-            </li>
-            <li class="menubar-list-item">
-              <button class="menu-button" aria-label="redo">
-                <svg
-                  fill="white"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="1rem"
-                  height="1rem"
-                  viewBox="0 0 52 52"
-                  enable-background="new 0 0 52 52"
-                  xml:space="preserve"
-                >
-                  <path
-                    d="M35.5,12.5c0,0,0.4,0,0.7,0c1,0,1-0.7,0.4-1.3l-4.9-4.9c-0.6-0.5-0.6-1.5,0-2.1l2.1-2.1
+                                    />
+                                </svg>
+                                undo
+                            </button>
+                        </li>
+                        <li class="menubar-list-item">
+                            <button class="menu-button" aria-label="redo">
+                                <svg
+                                    fill="white"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="1rem"
+                                    height="1rem"
+                                    viewBox="0 0 52 52"
+                                    enable-background="new 0 0 52 52"
+                                    xml:space="preserve"
+                                >
+                                    <path
+                                        d="M35.5,12.5c0,0,0.4,0,0.7,0c1,0,1-0.7,0.4-1.3l-4.9-4.9c-0.6-0.5-0.6-1.5,0-2.1l2.1-2.1
 	                                c0.5-0.6,1.5-0.6,2.1,0L48.8,15c0.5,0.5,0.5,1.3,0,1.8l-13,13c-0.6,0.5-1.3,0.5-1.9-0.1l-2.2-2.2c-0.6-0.6-0.7-1.5-0.1-2.1l4.9-4.9
 	                                c0.7-0.7,0.9-1.3,0.1-1.7c-0.3-0.1-1.1-0.1-1.1-0.1H21.6c-7.1,0-12.8,5.7-12.8,12.8s5.7,12.8,12.8,12.8h8.1c0.8,0,1.4,0.7,1.4,1.5
 	                                V49c0,0.8-0.5,1.4-1.3,1.4h-8.2C11.2,50.4,2.7,42,2.7,31.5s8.5-18.9,18.9-18.9L35.5,12.5z"
@@ -154,13 +157,5 @@
                 </div>
             </main>
         </div>
-        <div class="content-area">
-          <ul class="line-numbers-column-list">
-            <li class="line-number" data-line-number="1">1</li>
-          </ul>
-          <div class="code-area" contenteditable="true"></div>
-        </div>
-      </main>
-    </div>
-  </body>
+    </body>
 </html>
