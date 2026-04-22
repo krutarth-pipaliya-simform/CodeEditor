@@ -1,5 +1,6 @@
 h1 {
     white-space: nowrap;
+    font-size: clamp(1.5rem, 8vw, 2rem);
 }
 
 .current-user {
@@ -21,4 +22,11 @@ h1 {
 
 .current-user-name {
     white-space: nowrap;
+
+    @media (max-width: 420px) {
+        display: none;
+    }
+    @media (max-width: 250px) {
+        display: block;
+    }
 }
