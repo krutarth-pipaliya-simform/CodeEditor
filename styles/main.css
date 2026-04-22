@@ -66,9 +66,12 @@ main {
 }
 
 .content-area {
+    flex: 1;
     padding: var(--border-radius-md);
-    overflow: auto;
+    overflow-y: auto;
     color: white;
+    display: flex;
+    gap: var(--padding-md);
 }
 .user{
     margin-left: -10px;

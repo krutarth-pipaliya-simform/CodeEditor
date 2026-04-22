@@ -3,7 +3,11 @@
 @import url("./header.css");
 @import url("./aside.css");
 @import url("./main.css");
+<<<<<<< HEAD
 @import url("./prompt.css");
+=======
+@import url("./content.css");
+>>>>>>> c0f8478 (feat: add line numbers and list of lines)
 
 * {
     box-sizing: border-box;
