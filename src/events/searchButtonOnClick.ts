@@ -10,6 +10,12 @@ export default function searchButtonOnClick() {
             const value = input.value;
             addHilghlight(value);
         }
+        const endSearchButton = document.querySelector(
+            ".file-search-end-button",
+        );
+        if (endSearchButton instanceof HTMLButtonElement) {
+            endSearchButton.style.display = "inline-flex";
+        }
     });
 }
 
