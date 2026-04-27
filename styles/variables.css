@@ -1,0 +1,12 @@
+:root {
+    --padding-l: 1rem;
+    --padding-md: 0.5rem;
+    --padding-sm: 0.2rem;
+    --color-dark: #111111;
+    --color-font-white: white;
+    --color-background-initial: #b7e211;
+    --color-border: #535353;
+    --color-button: #232323;
+    --border-radius-md: 0.6rem;
+    --border-radius-sm: 0.4rem;
+}

@@ -1,0 +1,32 @@
+h1 {
+    white-space: nowrap;
+    font-size: clamp(1.5rem, 8vw, 2rem);
+}
+
+.current-user {
+    display: flex;
+    gap: var(--padding-md);
+    align-items: center;
+    margin-left: var(--padding-l);
+}
+
+.current-user-initial {
+    background-color: var(--color-background-initial);
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.current-user-name {
+    white-space: nowrap;
+
+    @media (max-width: 420px) {
+        display: none;
+    }
+    @media (max-width: 250px) {
+        display: block;
+    }
+}

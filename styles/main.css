@@ -1,0 +1,74 @@
+main {
+    flex: 5;
+    background-color: #252525;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+}
+
+.menubar-list {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    padding: var(--padding-md);
+    align-items: center;
+    border-bottom: 2px solid var(--color-border);
+    overflow-x: auto;
+}
+
+.menubar-list-item {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.menu-button {
+    background-color: var(--color-button);
+    color: var(--color-font-white);
+    padding: var(--padding-md);
+    border-radius: var(--border-radius-md);
+    border-color: var(--color-border);
+    border-style: solid;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+
+    &:hover {
+        border-color: white;
+        box-shadow: 0 0 5px gray;
+    }
+}
+
+.file-search-input {
+    background-color: var(--color-dark);
+    color: white;
+    outline: none;
+    border: 2px solid var(--color-border);
+    padding: var(--padding-md);
+    border-radius: var(--border-radius-sm);
+}
+
+.aside-toggle {
+    position: absolute;
+    top: 50%;
+    padding: var(--padding-md) var(--padding-sm);
+    background-color: var(--color-dark);
+    border: 2px solid var(--color-border);
+    border-radius: var(--border-radius-sm);
+    left: -0.5rem;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+        border-color: white;
+    }
+}
+
+.content-area {
+    padding: var(--border-radius-md);
+    overflow: auto;
+    color: white;
+}
+.user{
+    margin-left: -10px;
+}
