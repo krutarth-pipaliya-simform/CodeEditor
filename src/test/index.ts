@@ -5,9 +5,10 @@ import {
     updateDocument,
 } from "../storage/documentStore.js";
 import { addOperation, getOperations } from "../storage/operationStore.js";
-import type { Op } from "../types/storageTypes.js";
+import type { Operations } from "../types/storageTypes.js";
 
 export async function runTest() {
+    try {
     await initDB();
 
     console.log("DB Initialized");
@@ -47,7 +48,7 @@ export async function runTest() {
 
     let content = doc.content;
     let lines = content.split("\n");
-    ops.forEach((op: Op) => {
+    ops.forEach((op: Operations) => {
         if (op.type === "insert") {
             const row = op.position.row;
             const col = op.position.column;
@@ -78,4 +79,7 @@ export async function runTest() {
     });
 
     console.log("Document Updated");
+    } catch (err) {
+    console.error("runTest failed:", err);
+  }
 }

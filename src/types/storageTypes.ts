@@ -18,7 +18,7 @@ export type position = {
     row: number;
     column: number;
 };
-export type Op = {
+export type Operations = {
     operationId: string;
     documentId: number;
     userId: string;
@@ -30,7 +30,7 @@ export type Op = {
 
 export type Cursor = {
     cursorId: string; // userId or tabId
-    docId: number;
+    documentId: number;
     userId: string;
     position: number;
     updatedAt: number;
@@ -38,7 +38,7 @@ export type Cursor = {
 
 export type Tab = {
     tabId: string;
-    docId: number;
+    documentId: number;
     lastSeen: number;
 };
 

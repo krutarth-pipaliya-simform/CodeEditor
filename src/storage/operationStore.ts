@@ -1,7 +1,7 @@
 import { getDB } from "../storage/index.js";
-import type { Op } from "../types/storageTypes.js";
+import type { Operations } from "../types/storageTypes.js";
 
-export function addOperation(op: Op): Promise<void> {
+export function addOperation(op: Operations): Promise<void> {
     return new Promise((resolve, reject) => {
         const tx = getDB().transaction("operations", "readwrite");
         const store = tx.objectStore("operations");
@@ -11,11 +11,11 @@ export function addOperation(op: Op): Promise<void> {
     });
 }
 
-export function getOperations(docId: number): Promise<Op[]> {
+export function getOperations(docId: number): Promise<Operations[]> {
     return new Promise((resolve, reject) => {
         const tx = getDB().transaction("operations", "readonly");
         const store = tx.objectStore("operations");
-        const index = store.index("docId");
+        const index = store.index("documentId");
         const req = index.getAll(docId);
         req.onsuccess = () => resolve(req.result);
         req.onerror = () => reject(req.error);

@@ -25,7 +25,7 @@ export function initDB(): Promise<IDBDatabase> {
                 const opStore = db.createObjectStore("operations", {
                     keyPath: "operationId",
                 });
-                opStore.createIndex("docId", "docId", { unique: false });
+                opStore.createIndex("documentId", "documentId", { unique: false });
             }
 
             // Tabs
