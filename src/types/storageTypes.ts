@@ -5,14 +5,7 @@ export type Document = {
     updatedAt: number;
 };
 
-export const operationTypes = {
-    insert: "insert",
-    update: "update",
-    delete: "delete",
-} as const;
-
-export type OperationType =
-    (typeof operationTypes)[keyof typeof operationTypes];
+export type OperationType = "insert" | "update" | "delete";
 
 export type position = {
     row: number;
