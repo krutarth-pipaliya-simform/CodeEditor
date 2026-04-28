@@ -1,7 +1,7 @@
 import { getDB } from "../storage/index.js";
-import type { Doc } from "../types/storageTypes.js";
+import type { Document } from "../types/storageTypes.js";
 
-export function addDocument(doc: Doc): Promise<void> {
+export function addDocument(doc: Document): Promise<void> {
     return new Promise((resolve, reject) => {
         const tx = getDB().transaction("documents", "readwrite");
         const store = tx.objectStore("documents");
@@ -13,7 +13,7 @@ export function addDocument(doc: Doc): Promise<void> {
     });
 }
 
-export function updateDocument(doc: Doc): Promise<void> {
+export function updateDocument(doc: Document): Promise<void> {
     return new Promise((resolve, reject) => {
         const tx = getDB().transaction("documents", "readwrite");
         const store = tx.objectStore("documents");
@@ -33,7 +33,7 @@ export function deleteDocument(id: number): Promise<void> {
     });
 }
 
-export function getDocument(id: number): Promise<Doc | undefined> {
+export function getDocument(id: number): Promise<Document | undefined> {
     return new Promise((resolve, reject) => {
         const tx = getDB().transaction("documents", "readonly");
         const store = tx.objectStore("documents");
