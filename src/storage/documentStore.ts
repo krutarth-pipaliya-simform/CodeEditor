@@ -1,10 +1,18 @@
+import { generateRandomId } from "../events/randomIdGenerator.js";
 import { getDB } from "../storage/index.js";
 import type { Document } from "../types/storageTypes.js";
 
-export function addDocument(doc: Document): Promise<void> {
+export function createDocument(name:string): Promise<void> {
     return new Promise((resolve, reject) => {
         const tx = getDB().transaction("documents", "readwrite");
         const store = tx.objectStore("documents");
+
+        const doc = {
+            id: generateRandomId(),
+            name: name,
+            content: "",
+            updatedAt:Date.now()
+        };
 
         const req = store.add(doc);
         //if succeeds then this else error
@@ -33,12 +41,12 @@ export function deleteDocument(id: number): Promise<void> {
     });
 }
 
-export function getDocument(id: number): Promise<Document | undefined> {
+export function getDocument(name:string): Promise<Document | undefined> {
     return new Promise((resolve, reject) => {
         const tx = getDB().transaction("documents", "readonly");
         const store = tx.objectStore("documents");
-
-        const req = store.get(id);
+        const index = store.index("name");
+        const req = index.get(name);
         req.onsuccess = () => resolve(req.result);
         req.onerror = () => reject(req.error);
     });

@@ -1,5 +1,5 @@
 export type Document = {
-    id: number;
+    id: string;
     title: string;
     content: string;
     updatedAt: number;

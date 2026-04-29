@@ -1,6 +1,6 @@
 import { initDB } from "../storage/index.js";
 import {
-    addDocument,
+    createDocument,
     getDocument,
     updateDocument,
 } from "../storage/documentStore.js";
@@ -13,12 +13,7 @@ export async function runTest() {
 
     console.log("DB Initialized");
 
-    await addDocument({
-        id: 1,
-        title: "Test Doc",
-        content: "Hello",
-        updatedAt: Date.now(),
-    });
+    await createDocument("Doc1");
 
     console.log("Document Added");
 
@@ -34,7 +29,7 @@ export async function runTest() {
 
     console.log("Operation Added");
 
-    const doc = await getDocument(1);
+    const doc = await getDocument("Doc1");
 
     if (!doc) {
         console.error("Document not found");

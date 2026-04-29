@@ -21,9 +21,8 @@ export function initDB(): Promise<IDBDatabase> {
                 const docStore = db.createObjectStore("documents", {
                     keyPath: "id",
                 });
-                docStore.createIndex("updatedAt", "updatedAt", {
-                    unique: false,
-                });
+                //unique by name
+                docStore.createIndex("name", "name", { unique: true });
             }
 
             // Operations
