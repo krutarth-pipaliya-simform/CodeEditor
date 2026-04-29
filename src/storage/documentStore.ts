@@ -9,7 +9,7 @@ export function createDocument(name:string): Promise<void> {
 
         const doc = {
             id: generateRandomId(),
-            name: name,
+            title: name,
             content: "",
             updatedAt:Date.now()
         };
@@ -41,12 +41,13 @@ export function deleteDocument(id: number): Promise<void> {
     });
 }
 
-export function getDocument(name:string): Promise<Document | undefined> {
+export function getDocument(title:string): Promise<Document | undefined> {
     return new Promise((resolve, reject) => {
         const tx = getDB().transaction("documents", "readonly");
         const store = tx.objectStore("documents");
-        const index = store.index("name");
-        const req = index.get(name);
+        const index = store.index("title");
+        const req = index.get(title);
+
         req.onsuccess = () => resolve(req.result);
         req.onerror = () => reject(req.error);
     });

@@ -3,9 +3,11 @@ import {
     createDocument,
     getDocument,
     updateDocument,
+    
 } from "../storage/documentStore.js";
 import { addOperation, getOperations } from "../storage/operationStore.js";
 import type { Operations } from "../types/storageTypes.js";
+import { addUser, getUser } from "../storage/userStore.js";
 
 export async function runTest() {
     try {
@@ -20,7 +22,7 @@ export async function runTest() {
     await addOperation({
         operationId: "op1",
         documentId: 1,
-        userId: "user-1",
+        username: "user-1",
         type: "insert",
         position: { row: 5, column: 5 },
         value: " World",
@@ -74,6 +76,16 @@ export async function runTest() {
     });
 
     console.log("Document Updated");
+
+    await addUser("Jenith")
+    const user = await getUser("Jenith");
+
+    if (!user) {
+        console.error("User not found");
+        return;
+    }
+
+    console.log("Fetched user:", user);
     } catch (err) {
     console.error("runTest failed:", err);
   }

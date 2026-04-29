@@ -22,7 +22,7 @@ export function initDB(): Promise<IDBDatabase> {
                     keyPath: "id",
                 });
                 //unique by name
-                docStore.createIndex("name", "name", { unique: true });
+                docStore.createIndex("title", "title", { unique: true });
             }
 
             // Operations
@@ -40,9 +40,10 @@ export function initDB(): Promise<IDBDatabase> {
 
             // Users
             if (!db.objectStoreNames.contains("users")) {
-                db.createObjectStore("users", {
-                    keyPath: "userId",
+               const userStore= db.createObjectStore("users", {
+                    keyPath: "username",
                 });
+                userStore.createIndex("username","username",{unique:true})
             }
         }
         catch(err)

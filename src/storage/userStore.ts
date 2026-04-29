@@ -1,11 +1,13 @@
 import { getDB } from "./index.js";
 import type { User } from "../types/storageTypes.js";
 
-export function addUser(user: User): Promise<void> {
+export function addUser(username: string): Promise<void> {
     return new Promise((resolve, reject) => {
         const tx = getDB().transaction("users", "readwrite");
         const store = tx.objectStore("users");
-
+        const user={
+            username
+        }
         const req = store.put(user);
 
         req.onsuccess = () => resolve();
@@ -13,12 +15,12 @@ export function addUser(user: User): Promise<void> {
     });
 }
 
-export function getUser(userId: string): Promise<User | undefined> {
+export function getUser(username: string): Promise<User | undefined> {
     return new Promise((resolve, reject) => {
         const tx = getDB().transaction("users", "readonly");
         const store = tx.objectStore("users");
-
-        const req = store.get(userId);
+        const index=store.index("username")
+        const req = index.get(username);
 
         req.onsuccess = () => resolve(req.result);
         req.onerror = () => reject(req.error);

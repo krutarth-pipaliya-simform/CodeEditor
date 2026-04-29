@@ -14,7 +14,7 @@ export type position = {
 export type Operations = {
     operationId: string;
     documentId: number;
-    userId: string;
+    username: string;
     type: OperationType;
     position: position;
     value: string;
@@ -24,7 +24,7 @@ export type Operations = {
 export type Cursor = {
     cursorId: string; // userId or tabId
     documentId: number;
-    userId: string;
+    username: string;
     position: number;
     updatedAt: number;
 };
@@ -36,7 +36,5 @@ export type Tab = {
 };
 
 export type User = {
-    userId: string;
     username: string;
-    createdAt: number;
 };
