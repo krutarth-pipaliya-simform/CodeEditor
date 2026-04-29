@@ -8,7 +8,13 @@ export function initDB(): Promise<IDBDatabase> {
         const request = indexedDB.open(DB_NAME, DB_VERSION);
 
         request.onupgradeneeded = (event: IDBVersionChangeEvent) => {
-            const db = (event.target as IDBOpenDBRequest).result;
+            try{
+            const target=event.target;
+            if(!target|| !(target instanceof IDBOpenDBRequest))
+            {
+                throw new Error ("Event not captured properly")
+            }
+            const db = target.result;
 
             // Documents
             if (!db.objectStoreNames.contains("documents")) {
@@ -39,7 +45,13 @@ export function initDB(): Promise<IDBDatabase> {
                     keyPath: "userId",
                 });
             }
-        };
+        }
+        catch(err)
+        {
+            console.error(err)   
+        }
+    }
+        
 
         request.onsuccess = () => {
             db = request.result;
