@@ -1,27 +1,3 @@
-.content-list {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    overflow: auto;
-}
-
-.content-list-item {
-    display: flex;
-    gap: 1rem;
-}
-
-.line-number {
-    color: var(--color-border);
-}
-
-.line-numbers-column-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .code-area {
     text-wrap: nowrap;
     width: 100%;
