@@ -13,3 +13,7 @@
     background-color: var(--color-highlight);
     color: black;
 }
+
+.user-pointer {
+    color: var(--color-background-initial);
+}
