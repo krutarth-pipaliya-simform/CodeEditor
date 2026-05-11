@@ -1,60 +1,62 @@
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
+dialog {
+    border: none;
+    border-radius: 8px;
+    padding: 0;
+    background: transparent;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
 }
 
 /* Prompt box */
 .prompt-box {
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  width: 300px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  text-align: center;
-  animation: fadeIn 0.3s ease-in-out;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    animation: fadeIn 0.3s ease-in-out;
 }
 
 .prompt-box h2 {
-  margin-top: 0;
-  font-size: 18px;
+    margin-top: 0;
+    font-size: 18px;
 }
 
 .prompt-box input {
-  width: 90%;
-  padding: 8px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+    width: 90%;
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 .prompt-box button {
-  padding: 8px 14px;
-  margin: 5px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+    padding: 8px 14px;
+    margin: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 .btn-ok {
-  background-color: var(--color-background-initial);
-  color: var(--color-font-white);
+    background-color: var(--color-background-initial);
+    color: var(--color-font-white);
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
