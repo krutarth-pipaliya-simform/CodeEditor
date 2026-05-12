@@ -22,7 +22,7 @@ export function promptButtonEvent() {
             return;
         }
         if (fileName.length < 3) {
-            alert('Min length of 3 required.')
+            alert("Min length of 3 required.");
             return;
         }
         try {
@@ -36,7 +36,7 @@ export function promptButtonEvent() {
     });
 }
 
-function createLi(fileName: string) {
+export function createLi(fileName: string) {
     const liElement = document.createElement("li");
     liElement.classList.add("file-list-item");
     liElement.textContent = fileName;
