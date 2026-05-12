@@ -27,5 +27,5 @@ export function showCustomPrompt() {
                 alert("Please enter a valid name.");
             }
         });
-    });
+    },{once:true});
 }

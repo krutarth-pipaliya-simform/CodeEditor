@@ -11,6 +11,5 @@ export async function setUserInitials() {
         div.style.backgroundColor = getNearbyHexColor();
         if (el["username"][0]) div.innerText = el["username"][0];
         usersInitialList?.append(div);
-        console.log(el["username"][0]);
     }
 }
