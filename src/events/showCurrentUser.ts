@@ -1,9 +1,6 @@
 export function showCurrentUser(value: string) {
-    const userInitial = document.querySelector<HTMLDivElement>(
-        ".current-user-initial",
-    );
-    const userName =
-        document.querySelector<HTMLDivElement>(".current-user-name");
+    const userInitial = document.querySelector(".current-user-initial");
+    const userName = document.querySelector(".current-user-name");
 
     if (!(userInitial instanceof HTMLDivElement)) {
         throw new Error("User Initial Div Not found");
