@@ -38,7 +38,9 @@ main {
         box-shadow: 0 0 5px gray;
     }
 }
-
+.user-initials{
+    margin-left: auto;
+}
 .file-search-input {
     background-color: var(--color-dark);
     color: white;
@@ -65,10 +67,17 @@ main {
 }
 
 .content-area {
+    flex: 1;
     padding: var(--border-radius-md);
-    overflow: auto;
+    overflow-y: auto;
     color: white;
+    display: flex;
+    gap: var(--padding-md);
 }
 .user{
     margin-left: -10px;
+}
+
+.file-search-end-button {
+    display: none;
 }

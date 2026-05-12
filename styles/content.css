@@ -1,0 +1,19 @@
+.code-area {
+    text-wrap: nowrap;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.code-area:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.highlighted {
+    background-color: var(--color-highlight);
+    color: black;
+}
+
+.user-pointer {
+    color: var(--color-background-initial);
+}
