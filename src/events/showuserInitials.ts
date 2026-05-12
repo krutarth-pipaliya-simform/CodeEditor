@@ -1,0 +1,1 @@
+let usersInitialList=document.querySelector(".menubar-list-item")

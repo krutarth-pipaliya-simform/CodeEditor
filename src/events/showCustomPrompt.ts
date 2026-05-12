@@ -2,10 +2,18 @@ import { generateUser } from "./generateUser.js";
 
 export function showCustomPrompt() {
     document.addEventListener("DOMContentLoaded", () => {
-        const dialog = <HTMLDialogElement>document.getElementById("customPrompt");
-        const input = <HTMLInputElement>document.getElementById("promptInput");
-        const okBtn = <HTMLButtonElement>document.getElementById("ok-btn");
-
+        const dialog =document.getElementById("customPrompt");
+        const input = document.getElementById("promptInput");
+        const okBtn = document.getElementById("ok-btn");
+        if (!(dialog instanceof HTMLDialogElement)) {
+            throw new Error("Dialog element not found");
+        }
+        if (!(input instanceof HTMLInputElement)) {
+            throw new Error("Dialog element not found");
+        }
+         if (!(okBtn instanceof HTMLButtonElement)) {
+            throw new Error("Dialog element not found");
+        }
         // Open dialog
         dialog.showModal();
 
