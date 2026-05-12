@@ -21,6 +21,10 @@ export function promptButtonEvent() {
             );
             return;
         }
+        if (fileName.length < 3) {
+            alert('Min length of 3 required.')
+            return;
+        }
         try {
             await createDocument(fileName);
         } catch (error) {
