@@ -13,7 +13,7 @@ export function promptButtonEvent() {
             !(input instanceof HTMLInputElement) ||
             !(list instanceof HTMLUListElement)
         )
-            return;
+            throw new Error("Please check th DOM structure.");
         const fileName = input.value;
         if (checkDuplicateFileName(fileName)) {
             alert(
