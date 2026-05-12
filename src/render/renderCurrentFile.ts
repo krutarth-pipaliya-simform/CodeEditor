@@ -7,7 +7,7 @@ export async function renderCurrentFile() {
     if (!(codeArea instanceof HTMLDivElement)) return;
     const currentDocument = await getDocument(getCurrentFile());
     if (!currentDocument) return;
-    codeArea.innerHTML = currentDocument.content;
+    codeArea.textContent = currentDocument.content;
 }
 
 export function getCurrentFile() {

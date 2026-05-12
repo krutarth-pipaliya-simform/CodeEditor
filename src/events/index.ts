@@ -1,4 +1,5 @@
 import { createBroadcast } from "./broadCast.js";
+import { codeAreaChangeEvent } from "./codeAreaChangeEvent.js";
 import { createFileEvent } from "./createFIleEvent.js";
 import endSearchButtonOnClick from "./endSearchButtonOnClick.js";
 import { fileSelectionEvent } from "./fileSelectionEvent.js";
@@ -18,4 +19,5 @@ export function startEvents() {
     createFileEvent();
     promptButtonEvent();
     fileSelectionEvent();
+    codeAreaChangeEvent();
 }

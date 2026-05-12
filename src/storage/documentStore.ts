@@ -10,7 +10,7 @@ export function createDocument(name: string): Promise<void> {
         const doc = {
             id: generateRandomId(),
             title: name,
-            content: name,
+            content: "",
             updatedAt: Date.now(),
         };
 
@@ -57,8 +57,7 @@ export function getAllDocuments(): Promise<Document[] | undefined> {
     return new Promise((resolve, reject) => {
         const tx = getDB().transaction("documents", "readonly");
         const store = tx.objectStore("documents");
-        const index = store.index("title");
-        const req = index.getAll();
+        const req = store.getAll();
 
         req.onsuccess = () => resolve(req.result);
         req.onerror = () => reject(req.error);
