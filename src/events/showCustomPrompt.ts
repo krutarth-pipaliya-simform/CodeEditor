@@ -2,8 +2,8 @@ import { generateUser } from "./generateUser.js";
 
 export function showCustomPrompt() {
     document.addEventListener("DOMContentLoaded", () => {
-        const dialog =document.getElementById("customPrompt");
-        const input = document.getElementById("promptInput");
+        const dialog =document.getElementById("custom-prompt");
+        const input = document.getElementById("prompt-input");
         const okBtn = document.getElementById("ok-btn");
         if (!(dialog instanceof HTMLDialogElement)) {
             throw new Error("Dialog element not found");
