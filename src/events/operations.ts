@@ -1,32 +1,29 @@
-
 import { editorState } from "../types/state.js";
-import type { Operations } from "../types/storageTypes.js";
+import type { ApplyOptions, Operations } from "../types/storageTypes.js";
 import { sendOperation } from "./broadcast.js";
+import { clearRedo, getInverseOperation, pushUndo } from "./history.js";
 import { positionToIndex } from "./utils.js";
 
-const editor = document.querySelector<HTMLTextAreaElement>("#editor")!;
+const editor = document.querySelector<HTMLTextAreaElement>("#editor");
 
 export function applyOperation(
     operation: Operations,
-    shouldBroadcast = true
+    options: ApplyOptions = {},
 ) {
+    const { broadcast = true, saveHistory = true } = options;
     const document = editorState.currentDocument;
-
     let content = document.content;
-
-    const index =   positionToIndex(
+    const index = positionToIndex(
         content,
         operation.position.row,
-        operation.position.column
+        operation.position.column,
     );
-
     switch (operation.type) {
         case "insert": {
             content =
                 content.slice(0, index) +
                 operation.value +
                 content.slice(index);
-
             break;
         }
 
@@ -34,7 +31,6 @@ export function applyOperation(
             content =
                 content.slice(0, index) +
                 content.slice(index + operation.value.length);
-
             break;
         }
 
@@ -46,16 +42,21 @@ export function applyOperation(
 
     document.content = content;
     document.updatedAt = Date.now();
-
     editorState.appliedOperations.add(operation.operationId);
 
+    
+    if (saveHistory) {
+        const inverse = getInverseOperation(operation);
+        pushUndo(inverse);
+        clearRedo();
+        sendOperation(operation);
+    }
     renderEditor();
-
-    if (shouldBroadcast) {
+     if (broadcast) {
         sendOperation(operation);
     }
 }
 
 export function renderEditor() {
-    editor.value = editorState.currentDocument.content;
+    if (editor !== null) editor.value = editorState.currentDocument.content;
 }

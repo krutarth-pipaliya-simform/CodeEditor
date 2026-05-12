@@ -13,14 +13,13 @@ export function sendOperation(operation: Operations) {
 
 channel.onmessage = (event) => {
     const data = event.data;
-
     if (data.type !== "operation") return;
-
     const operation: Operations = data.payload;
-
     if (editorState.appliedOperations.has(operation.operationId)) {
         return;
     }
-
-    applyOperation(operation, false);
+    applyOperation(operation, {
+        broadcast: false,
+        saveHistory: false,
+    });
 };

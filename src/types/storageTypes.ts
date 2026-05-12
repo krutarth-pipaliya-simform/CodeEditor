@@ -38,3 +38,7 @@ export type Tab = {
 export type User = {
     username: string;
 };
+export type ApplyOptions = {
+    broadcast?: boolean;
+    saveHistory?: boolean;
+};
