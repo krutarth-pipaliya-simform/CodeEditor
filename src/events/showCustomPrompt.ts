@@ -1,4 +1,5 @@
 import { generateUser } from "./generateUser.js";
+import { setUserInitials } from "./showUserInitials.js";
 
 export function showCustomPrompt() {
     document.addEventListener("DOMContentLoaded", () => {
@@ -22,7 +23,9 @@ export function showCustomPrompt() {
             const value = input.value.trim();
             if (value) {
                 dialog.close();
+                //on close of broadcast channel remove this user.
                 generateUser(value);
+                setUserInitials()
             } else {
                 alert("Please enter a valid name.");
             }
