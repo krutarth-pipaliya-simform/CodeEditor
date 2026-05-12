@@ -38,7 +38,9 @@ main {
         box-shadow: 0 0 5px gray;
     }
 }
-
+.user-initials{
+    margin-left: auto;
+}
 .file-search-input {
     background-color: var(--color-dark);
     color: white;
