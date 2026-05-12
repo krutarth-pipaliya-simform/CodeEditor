@@ -7,8 +7,11 @@ export async function renderFiles() {
     const res = await getAllDocuments();
     if (!res) return;
     res.forEach((ele) => {
-        if (!getCurrentFile()) setCurrentFile(ele.title);
         const li = createLi(ele.title);
+        if (!getCurrentFile()) {
+            setCurrentFile(ele.title);
+            li.classList.add("selected-file");
+        }
         list?.appendChild(li);
     });
 }

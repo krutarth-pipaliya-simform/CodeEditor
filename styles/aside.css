@@ -41,3 +41,7 @@ aside {
         background-color: #363636;
     }
 }
+
+.selected-file {
+    background-color: #363636;
+}
