@@ -1,8 +1,8 @@
 import endSearchButtonOnClick from "./endSearchButtonOnClick.js";
-import lineNumberChangeEvent from "./lineNumberChangeEvent.js";
-import { randomColoriseProfile } from "./randomColoriseProfile.js";
+import lineNumberChangeEvent from "./lineNumberChangeEvent.js"
 import searchButtonOnClick from "./searchButtonOnClick.js";
 import { showCustomPrompt } from "./showCustomPrompt.js";
+import { setUserInitials } from "./showuserInitials.js";
 import toggleSidebarEvent from "./toggleSidebarEvent.js";
 
 export function startEvents() {
@@ -10,6 +10,6 @@ export function startEvents() {
     searchButtonOnClick();
     endSearchButtonOnClick();
     lineNumberChangeEvent();
-    randomColoriseProfile();
     showCustomPrompt()
+    setUserInitials();
 }
