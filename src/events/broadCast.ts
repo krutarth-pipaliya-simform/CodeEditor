@@ -1,3 +1,5 @@
+import type { BroadcastData } from "../types/broadcastTypes.js";
+
 export const channel = new BroadcastChannel("pointer-channel");
 
 const timerMap = new Map<string, number>();
@@ -32,11 +34,4 @@ export function createBroadcast() {
         }, 5000);
         timerMap.set(user, timer);
     };
-}
-
-interface BroadcastData {
-    user: string;
-    top: number;
-    left: number;
-    documentName: string;
 }
