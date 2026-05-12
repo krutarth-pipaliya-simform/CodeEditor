@@ -35,6 +35,7 @@ aside {
 .file-list-item {
     padding: var(--padding-md);
     border-radius: var(--border-radius-md);
+    overflow-x: auto;
 
     &:hover {
         background-color: #363636;
