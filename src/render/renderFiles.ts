@@ -6,10 +6,10 @@ export async function renderFiles() {
     const list = document.querySelector(".file-list");
     const res = await getAllDocuments();
     if (!res) return;
-    res.forEach((ele) => {
+    res.forEach(async (ele) => {
         const li = createLi(ele.title);
         if (!getCurrentFile()) {
-            setCurrentFile(ele.title);
+            await setCurrentFile(ele.title);
             li.classList.add("selected-file");
         }
         list?.appendChild(li);

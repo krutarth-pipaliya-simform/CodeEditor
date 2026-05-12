@@ -10,7 +10,7 @@ export function createDocument(name: string): Promise<void> {
         const doc = {
             id: generateRandomId(),
             title: name,
-            content: "",
+            content: name,
             updatedAt: Date.now(),
         };
 

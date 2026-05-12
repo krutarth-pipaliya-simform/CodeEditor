@@ -14,6 +14,7 @@ export function getCurrentFile() {
     return currentFile;
 }
 
-export function setCurrentFile(fileName: string) {
+export async function setCurrentFile(fileName: string) {
     currentFile = fileName;
+    await renderCurrentFile();
 }
