@@ -18,7 +18,7 @@ export function startEvents() {
     lineNumberChangeEvent();
     renderEditor();
     setupEditorEvents();
-    setupHistoryEvents()
+    setupHistoryEvents();
     keyboardEvents();
     createBroadcast();
     mouseMoveEvent();

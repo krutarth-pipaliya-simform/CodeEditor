@@ -5,7 +5,10 @@ export const channel = new BroadcastChannel("pointer-channel");
 const timerMap = new Map<string, number>();
 
 export function createBroadcast() {
-    channel.onmessage = (m) => {
+    channel.addEventListener("message", (m) => {
+        if (
+            m.data.type !== "pointer"
+        ) return;
         let { user, top, left, documentName }: BroadcastData = m.data;
         let existingPointer = document.querySelector(`#pointer${user}`);
         if (!existingPointer) {
@@ -33,5 +36,5 @@ export function createBroadcast() {
             existingPointer.remove();
         }, 5000);
         timerMap.set(user, timer);
-    };
+    });
 }

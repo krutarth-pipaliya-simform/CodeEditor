@@ -14,6 +14,7 @@ export function mouseMoveEvent() {
             return;
 
         channel.postMessage({
+            type: "pointer",
             top: e.clientY,
             left: e.clientX,
             documentName: "random",
