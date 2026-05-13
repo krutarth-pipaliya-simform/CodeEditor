@@ -21,16 +21,18 @@ export function showCustomPrompt() {
             dialog.showModal();
 
             // OK button click
-            okBtn.addEventListener("click", () => {
+            const handleokBtn = () => {
                 const value = input.value.trim();
                 if (value) {
                     dialog.close();
+                    //on close of broadcast channel remove this user.
                     generateUser(value);
                     setUserInitials();
                 } else {
                     alert("Please enter a valid name.");
                 }
-            });
+            };
+            okBtn.addEventListener("click", handleokBtn);
         },
         { once: true },
     );

@@ -1,0 +1,37 @@
+import type { BroadcastData } from "../types/broadcastTypes.js";
+
+export const channel = new BroadcastChannel("pointer-channel");
+
+const timerMap = new Map<string, number>();
+
+export function createBroadcast() {
+    channel.onmessage = (m) => {
+        let { user, top, left, documentName }: BroadcastData = m.data;
+        let existingPointer = document.querySelector(`#pointer${user}`);
+        if (!existingPointer) {
+            const pointer = document.createElement("div");
+            pointer.classList.add("user-pointer");
+            pointer.id = `pointer${user}`;
+            pointer.innerHTML = `<svg height="1rem" width="1rem" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512"  xml:space="preserve"><style type="text/css">.st0{fill:#000000;}</style><g><path class="st0" d="M256,172.836c-45.926,0-83.157,37.237-83.157,83.164s37.23,83.157,83.157,83.157c45.926,0,83.156-37.23,83.156-83.157S301.926,172.836,256,172.836z"/><path class="st0" d="M440.562,233.98c-4.846-41.328-23.251-79.572-53.126-109.423C357.608,94.697,319.38,76.3,278.02,71.453V0h-44.024v71.445c-41.345,4.831-79.589,23.236-109.432,53.111c-29.89,29.851-48.28,68.095-53.126,109.423H0v44.033h71.437c4.847,41.329,23.236,79.58,53.126,109.431c29.828,29.867,68.072,48.265,109.432,53.111V512h44.024v-71.445c41.329-4.831,79.572-23.236,109.416-53.111c29.89-29.851,48.28-68.102,53.126-109.431H512V233.98H440.562z M352.855,352.847c-25.901,25.862-60.295,40.106-96.855,40.121c-36.561-0.015-70.954-14.259-96.855-40.121c-25.854-25.893-40.098-60.287-40.113-96.847c0.015-36.56,14.259-70.954,40.113-96.847c25.901-25.87,60.294-40.113,96.855-40.121c36.56,0.008,70.954,14.251,96.855,40.121c25.854,25.893,40.098,60.287,40.114,96.847C392.952,292.56,378.709,326.954,352.855,352.847z"/></g></svg>`;
+            const username = document.createElement("div");
+            username.textContent = user;
+            pointer.appendChild(username);
+            document.body.appendChild(pointer);
+            existingPointer = pointer;
+        }
+        if (!(existingPointer instanceof HTMLDivElement)) return;
+        existingPointer.style.position = "absolute";
+        existingPointer.style.top = String(top) + "px";
+        existingPointer.style.left = String(left) + "px";
+        let timer = timerMap.get(user);
+        if (timerMap.has(user)) {
+            clearTimeout(timer);
+            timerMap.delete(user);
+        }
+
+        timer = setTimeout(() => {
+            existingPointer.remove();
+        }, 5000);
+        timerMap.set(user, timer);
+    };
+}

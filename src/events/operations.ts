@@ -1,6 +1,6 @@
 import { editorState } from "../types/state.js";
 import type { ApplyOptions, Operations } from "../types/storageTypes.js";
-import { sendOperation } from "./broadcast.js";
+import { sendOperation } from "./typingBroadcast.js";
 import { clearRedo, getInverseOperation, pushUndo } from "./history.js";
 import { positionToIndex } from "./utils.js";
 

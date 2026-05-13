@@ -39,6 +39,10 @@ main {
     }
 }
 
+.current-users {
+    margin-left: auto;
+}
+
 .file-search-input {
     background-color: var(--color-dark);
     color: white;
@@ -72,9 +76,11 @@ main {
     display: flex;
     gap: var(--padding-md);
 }
-.user{
+
+.user {
     margin-left: -10px;
 }
+
 .file-search-end-button {
     display: none;
 }

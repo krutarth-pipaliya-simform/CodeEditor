@@ -1,5 +1,10 @@
 import highlightChangeEvent from "./highlighChangeEvent.js";
 
+const observer = new MutationObserver((mutationRecords) => {
+    if (mutationRecords[0]?.target.parentElement)
+        highlightChangeEvent(mutationRecords[0]?.target.parentElement);
+});
+
 export default function searchButtonOnClick() {
     const button = document.querySelector(".file-search-button");
     button?.addEventListener("click", (e) => {
@@ -62,8 +67,3 @@ export function removeHighlight(span?: HTMLSpanElement) {
         parent?.removeChild(highlight);
     }
 }
-
-const observer = new MutationObserver((mutationRecords) => {
-    if (mutationRecords[0]?.target.parentElement)
-        highlightChangeEvent(mutationRecords[0]?.target.parentElement);
-});

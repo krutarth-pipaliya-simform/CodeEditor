@@ -5,6 +5,7 @@
 @import url("./main.css");
 @import url("./prompt.css");
 @import url("./content.css");
+
 * {
     box-sizing: border-box;
     padding: 0;
