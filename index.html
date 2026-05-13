@@ -54,7 +54,11 @@
                 <div class="menubar">
                     <ul class="menubar-list">
                         <li class="menubar-list-item">
-                            <button class="menu-button" aria-label="undo" id="undo">
+                            <button
+                                class="menu-button"
+                                aria-label="undo"
+                                id="undo"
+                            >
                                 <svg
                                     fill="white"
                                     xmlns="http://www.w3.org/2000/svg"
@@ -75,7 +79,11 @@
                             </button>
                         </li>
                         <li class="menubar-list-item">
-                            <button class="menu-button" aria-label="redo" id="redo">
+                            <button
+                                class="menu-button"
+                                aria-label="redo"
+                                id="redo"
+                            >
                                 <svg
                                     fill="white"
                                     xmlns="http://www.w3.org/2000/svg"
@@ -116,11 +124,12 @@
                                 End Search
                             </button>
                         </li>
-                        <li class="menubar-list-item current-users "></li>
+                        <li class="menubar-list-item current-users"></li>
                     </ul>
-                </div>  
+                </div>
                 <div class="content-area">
-                    <textarea    
+                    <div class="current-file-name"></div>
+                    <textarea
                         id="editor"
                         class="code-area"
                         contenteditable="plaintext-only"

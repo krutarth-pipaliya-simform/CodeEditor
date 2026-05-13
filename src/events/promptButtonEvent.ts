@@ -1,4 +1,5 @@
 import { createDocument } from "../storage/documentStore.js";
+import { fileAddChannel } from "./broadCast.js";
 
 export function promptButtonEvent() {
     const button = document.getElementById("add-file");
@@ -33,11 +34,12 @@ export function promptButtonEvent() {
         }
 
         list.appendChild(createLi(fileName));
+        fileAddChannel.postMessage("render-again");
         prompt.close();
     });
 }
 
-function createLi(fileName: string) {
+export function createLi(fileName: string) {
     const liElement = document.createElement("li");
     liElement.classList.add("file-list-item");
     liElement.textContent = fileName;

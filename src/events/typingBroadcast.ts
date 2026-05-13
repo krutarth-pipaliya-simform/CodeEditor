@@ -1,3 +1,4 @@
+import { getCurrentFile } from "../render/renderCurrentFile.js";
 import { editorState } from "../types/state.js";
 import type { Operations } from "../types/storageTypes.js";
 import { applyOperation } from "./operations.js";
@@ -8,6 +9,7 @@ export function sendOperation(operation: Operations) {
     channel.postMessage({
         type: "operation",
         payload: operation,
+        file: getCurrentFile(),
     });
 }
 
@@ -18,8 +20,9 @@ channel.onmessage = (event) => {
     if (editorState.appliedOperations.has(operation.operationId)) {
         return;
     }
-    applyOperation(operation, {
-        broadcast: false,
-        saveHistory: false,
-    });
+    if (getCurrentFile() === data.file)
+        applyOperation(operation, {
+            broadcast: false,
+            saveHistory: false,
+        });
 };
