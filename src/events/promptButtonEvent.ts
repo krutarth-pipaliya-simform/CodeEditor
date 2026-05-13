@@ -1,4 +1,5 @@
 import { createDocument } from "../storage/documentStore.js";
+import { fileAddChannel } from "./broadCast.js";
 
 export function promptButtonEvent() {
     const button = document.getElementById("add-file");
@@ -33,6 +34,7 @@ export function promptButtonEvent() {
         }
 
         list.appendChild(createLi(fileName));
+        fileAddChannel.postMessage("render-again");
         prompt.close();
     });
 }

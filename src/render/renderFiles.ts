@@ -4,6 +4,8 @@ import { getCurrentFile, setCurrentFile } from "./renderCurrentFile.js";
 
 export async function renderFiles() {
     const list = document.querySelector(".file-list");
+    if (!(list instanceof HTMLUListElement)) return;
+    list.innerHTML = "";
     const res = await getAllDocuments();
     if (!res) return;
     res.forEach(async (ele) => {
@@ -12,6 +14,6 @@ export async function renderFiles() {
             await setCurrentFile(ele.title);
             li.classList.add("selected-file");
         }
-        list?.appendChild(li);
+        list.appendChild(li);
     });
 }
