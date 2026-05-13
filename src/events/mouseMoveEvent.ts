@@ -1,3 +1,4 @@
+import { getCurrentFile } from "../render/renderCurrentFile.js";
 import { channel } from "./broadCast.js";
 
 export function mouseMoveEvent() {
@@ -17,7 +18,7 @@ export function mouseMoveEvent() {
             type: "pointer",
             top: e.clientY,
             left: e.clientX,
-            documentName: "random",
+            documentName: getCurrentFile(),
             user: sessionStorage.getItem("username"),
         });
     });

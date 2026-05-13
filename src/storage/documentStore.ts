@@ -51,3 +51,14 @@ export function getDocument(title: string): Promise<Document | undefined> {
         req.onerror = () => reject(req.error);
     });
 }
+
+export function getAllDocuments(): Promise<Document[] | undefined> {
+    return new Promise((resolve, reject) => {
+        const tx = getDB().transaction("documents", "readonly");
+        const store = tx.objectStore("documents");
+        const req = store.getAll();
+
+        req.onsuccess = () => resolve(req.result);
+        req.onerror = () => reject(req.error);
+    });
+}

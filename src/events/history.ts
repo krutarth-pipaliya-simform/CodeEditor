@@ -36,7 +36,6 @@ export function clearRedo() {
 }
 
 export function undo() {
-    console.log("Hello");
     const operation = editorState.undoStack.pop();
 
     if (!operation) return;

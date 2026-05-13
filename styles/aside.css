@@ -36,8 +36,13 @@ aside {
     padding: var(--padding-md);
     border-radius: var(--border-radius-md);
     overflow-x: auto;
-
+    margin-bottom: var(--padding-md);
     &:hover {
         background-color: #363636;
     }
+}
+
+.selected-file {
+    border: 2px solid white;
+    background-color: #363636;
 }

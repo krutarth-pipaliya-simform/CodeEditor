@@ -1,14 +1,13 @@
+import { getCurrentFile } from "../render/renderCurrentFile.js";
 import { editorState } from "../types/state.js";
 import type { Operations } from "../types/storageTypes.js";
 import { applyOperation } from "./operations.js";
 import { generateRandomId } from "./randomIdGenerator.js";
 import { getRowColumn } from "./utils.js";
 
-
 const editor = document.querySelector<HTMLTextAreaElement>("#editor")!;
 
-const username =
-    sessionStorage.getItem("username") || "anonymous-user";
+const username = sessionStorage.getItem("username") || "anonymous-user";
 
 let previousValue = "";
 
@@ -26,14 +25,11 @@ function handleInput() {
     if (currentValue.length > previousValue.length) {
         const insertedChar = currentValue[cursorIndex - 1];
 
-        const position = getRowColumn(
-            previousValue,
-            cursorIndex - 1
-        );
+        const position = getRowColumn(previousValue, cursorIndex - 1);
 
         const operation: Operations = {
             operationId: generateRandomId(),
-            documentId: "doc-1",
+            documentId: getCurrentFile(),
             username,
             type: "insert",
             position,
@@ -42,19 +38,14 @@ function handleInput() {
         };
 
         applyOperation(operation);
-    }
-
-    else if (currentValue.length < previousValue.length) {
-        const position = getRowColumn(
-            previousValue,
-            cursorIndex
-        );
+    } else if (currentValue.length < previousValue.length) {
+        const position = getRowColumn(previousValue, cursorIndex);
 
         const deletedChar = previousValue[cursorIndex];
 
         const operation: Operations = {
             operationId: generateRandomId(),
-            documentId: "doc-1",
+            documentId: getCurrentFile(),
             username,
             type: "delete",
             position,

@@ -3,6 +3,11 @@ import type { ApplyOptions, Operations } from "../types/storageTypes.js";
 import { sendOperation } from "./typingBroadcast.js";
 import { clearRedo, getInverseOperation, pushUndo } from "./history.js";
 import { positionToIndex } from "./utils.js";
+import {
+    getCurrentFile,
+    renderCurrentFile,
+} from "../render/renderCurrentFile.js";
+import { updateDocument } from "../storage/documentStore.js";
 
 const editor = document.querySelector<HTMLTextAreaElement>("#editor");
 
@@ -44,15 +49,16 @@ export function applyOperation(
     document.updatedAt = Date.now();
     editorState.appliedOperations.add(operation.operationId);
 
-    
     if (saveHistory) {
         const inverse = getInverseOperation(operation);
         pushUndo(inverse);
         clearRedo();
+        // updateDocument(document)
+        // renderCurrentFile()
         sendOperation(operation);
     }
     renderEditor();
-     if (broadcast) {
+    if (broadcast) {
         sendOperation(operation);
     }
 }

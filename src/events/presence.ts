@@ -13,7 +13,6 @@ const heartbeatMap = new Map<string, ReturnType<typeof setInterval>>();
 
 export function startHeartbeat(username: string) {
     if (heartbeatMap.has(username)) return;
-    console.log(username + " FirstTime");
     let existingUser = activeUsersMap.get(username);
     if (!existingUser) {
         existingUser = {
@@ -44,14 +43,12 @@ function sendHeartbeat(username: string) {
         timestamp: Date.now(),
     });
 
-    console.log(username + " SecondTime");
 }
 
 export function setupPresenceListener() {
     channel.addEventListener("message", (event) => {
         const data = event.data;
         if (data.type !== "heartbeat") return;
-        console.log("Heartbeat Received");
         const username = data.user;
         let existingUser = activeUsersMap.get(username);
         if (!existingUser) {
@@ -85,7 +82,6 @@ function resetPresenceTimeout(username: string) {
     timeoutMap.set(username, timer);
 }
 export function renderActiveUsers() {
-    console.log(activeUsersMap);
     const usersInitialList =
         document.querySelector<HTMLLIElement>(".current-users");
     if (!usersInitialList) return;

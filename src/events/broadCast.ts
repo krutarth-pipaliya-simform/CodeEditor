@@ -1,3 +1,5 @@
+import { getCurrentFile } from "../render/renderCurrentFile.js";
+import { renderFiles } from "../render/renderFiles.js";
 import type { BroadcastData } from "../types/broadcastTypes.js";
 
 export const channel = new BroadcastChannel("pointer-channel");
@@ -10,6 +12,7 @@ export function createBroadcast() {
             m.data.type !== "pointer"
         ) return;
         let { user, top, left, documentName }: BroadcastData = m.data;
+        if (documentName !== getCurrentFile()) return;
         let existingPointer = document.querySelector(`#pointer${user}`);
         if (!existingPointer) {
             const pointer = document.createElement("div");
@@ -37,4 +40,10 @@ export function createBroadcast() {
         }, 5000);
         timerMap.set(user, timer);
     });
+
+    fileAddChannel.onmessage = (m) => {
+        renderFiles();
+    };
 }
+
+export const fileAddChannel = new BroadcastChannel("file-add-channel");
