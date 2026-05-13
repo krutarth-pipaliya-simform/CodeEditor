@@ -15,15 +15,15 @@
             rel="stylesheet"
         />
         <link rel="stylesheet" href="styles/index.css" />
-        <script src="./dist/index.js" defer type="module"></script>
+        <script type="module" src="dist/index.js" defer></script>
         <title>Code Editor</title>
     </head>
     <body>
         <header>
             <h1>Code together!</h1>
             <div class="current-user">
-                <div class="current-user-initial">K</div>
-                <div class="current-user-name">Krutarth Pipaliya</div>
+                <div class="current-user-initial hidden"></div>
+                <div class="current-user-name"></div>
             </div>
         </header>
         <div class="main-container">
@@ -116,13 +116,7 @@
                                 End Search
                             </button>
                         </li>
-                        <li class="menubar-list-item user-initials">
-                            <div class="current-user-initial user">K</div>
-                            <div class="current-user-initial user">J</div>
-                            <div class="current-user-initial user">P</div>
-                            <div class="current-user-initial user">S</div>
-                            <div class="current-user-initial user">U</div>
-                        </li>
+                        <li class="menubar-list-item current-users "></li>
                     </ul>
                 </div>
                 <div class="content-area">
@@ -133,17 +127,33 @@
                 </div>
             </main>
         </div>
+
         <!-- Custom Prompt -->
-        <div id="custom-prompt" class="overlay hidden">
+        <dialog id="custom-prompt">
             <div class="prompt-box">
                 <h2>Enter your name</h2>
+
                 <input
                     type="text"
-                    id="promptInput"
+                    id="prompt-input"
                     placeholder="Type here..."
                 />
-                <button class="btn-ok" id="ok-btn">OK</button>
+
+                <div>
+                    <button class="btn-ok" id="ok-btn">OK</button>
+                </div>
             </div>
-        </div>
+        </dialog>
+        <!-- Custom Prompt for file -->
+        <dialog id="custom-prompt-file">
+            <div class="prompt-box">
+                <h2>Enter your file name</h2>
+
+                <input type="text" id="file-input" placeholder="Type here..." />
+                <div>
+                    <button class="btn-ok" id="add-file">OK</button>
+                </div>
+            </div>
+        </dialog>
     </body>
 </html>

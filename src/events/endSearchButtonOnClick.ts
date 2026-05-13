@@ -6,7 +6,6 @@ export default function endSearchButtonOnClick() {
         button.addEventListener("click", (e) => {
             e.preventDefault();
             removeHighlight();
-            console.log(button.classList);
             button.style.display = "none";
         });
     }

@@ -3,8 +3,9 @@ export function createFileEvent() {
     if (!(createButton instanceof HTMLButtonElement)) return;
     createButton.addEventListener("click", async () => {
         console.log("called");
-        const prompt = document.getElementById("custom-prompt");
-        if (!(prompt instanceof HTMLDivElement)) return;
-        prompt.classList.remove("hidden");
+        const prompt = document.getElementById("custom-prompt-file");
+        if (!(prompt instanceof HTMLDialogElement)) return;
+        console.log("Hello")
+        prompt.showModal()
     });
 }

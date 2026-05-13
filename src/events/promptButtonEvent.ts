@@ -1,15 +1,16 @@
 import { createDocument } from "../storage/documentStore.js";
 
 export function promptButtonEvent() {
-    const button = document.getElementById("ok-btn");
+    const button = document.getElementById("add-file");
+    console.log(button);
     if (!(button instanceof HTMLButtonElement)) return;
     button.addEventListener("click", async () => {
-        const input = document.getElementById("promptInput");
+        const input = document.getElementById("file-input");
         const list = document.querySelector(".file-list");
-        const prompt = document.getElementById("custom-prompt");
+        const prompt = document.getElementById("custom-prompt-file");
 
         if (
-            !(prompt instanceof HTMLDivElement) ||
+            !(prompt instanceof HTMLDialogElement) ||
             !(input instanceof HTMLInputElement) ||
             !(list instanceof HTMLUListElement)
         )
@@ -22,7 +23,7 @@ export function promptButtonEvent() {
             return;
         }
         if (fileName.length < 3) {
-            alert('Min length of 3 required.')
+            alert("Min length of 3 required.");
             return;
         }
         try {
@@ -32,7 +33,7 @@ export function promptButtonEvent() {
         }
 
         list.appendChild(createLi(fileName));
-        prompt.classList.add("hidden");
+        prompt.close();
     });
 }
 

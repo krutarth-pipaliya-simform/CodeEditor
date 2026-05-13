@@ -30,3 +30,7 @@ h1 {
         display: block;
     }
 }
+
+.hidden{
+    display: none;
+}
