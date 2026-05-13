@@ -17,7 +17,7 @@ export function mouseMoveEvent() {
             top: e.clientY,
             left: e.clientX,
             documentName: "random",
-            user: "krutarth",
+            user: sessionStorage.getItem("username"),
         });
     });
 }
