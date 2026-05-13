@@ -1,5 +1,4 @@
 import { generateUser } from "./generateUser.js";
-import { promptButtonEvent } from "./promptButtonEvent.js";
 import { setUserInitials } from "./showUserInitials.js";
 
 export function showCustomPrompt() {

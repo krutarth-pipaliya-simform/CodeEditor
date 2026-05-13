@@ -3,6 +3,10 @@ import { getNearbyHexColor } from "./getNearbyHexColor.js";
 export async function setUserInitials() {
     const usersInitialList =
         document.querySelector<HTMLLIElement>(".current-users");
+    if (!usersInitialList) return;
+
+    // Clear old users first
+    usersInitialList.innerHTML = "";
     const val = await getAllUsers();
     for (let el of val) {
         //  <div class="current-user-initial user">K</div>

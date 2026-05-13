@@ -1,15 +1,11 @@
-import highlightChangeEvent from "./highlighChangeEvent.js";
-
-const observer = new MutationObserver((mutationRecords) => {
-    if (mutationRecords[0]?.target.parentElement)
-        highlightChangeEvent(mutationRecords[0]?.target.parentElement);
-});
+let currentMatchIndex = 0;
+let matches: number[] = [];
+let previousQuery = "";
 
 export default function searchButtonOnClick() {
     const button = document.querySelector(".file-search-button");
     button?.addEventListener("click", (e) => {
         e.preventDefault();
-        removeHighlight();
         const input = document.querySelector(".file-search-input");
         if (input instanceof HTMLInputElement) {
             const value = input.value;
@@ -26,44 +22,44 @@ export default function searchButtonOnClick() {
 
 function addHilghlight(query: string) {
     const code = document.querySelector(".code-area");
-    if (code instanceof HTMLDivElement) {
-        code.innerHTML = code.innerHTML.replaceAll(
-            query,
-            `<span class="highlighted" data-text="${query}">${query}</span>`,
-        );
-    }
-
-    const highlights = document.querySelectorAll(".highlighted");
-    for (let highlight of highlights) {
-        if (highlight instanceof HTMLSpanElement) {
-            observer.observe(highlight, {
-                childList: true,
-                subtree: true,
-                characterData: true,
-            });
+    if (code instanceof HTMLTextAreaElement) {
+        if (previousQuery !== query) {
+            matches = [];
+            currentMatchIndex = 0;
+            previousQuery = query;
+            let startIndex = 0;
+            while (true) {
+                const foundIndex = code.value.indexOf(query, startIndex);
+                if (foundIndex === -1) break;
+                matches.push(foundIndex);
+                startIndex = foundIndex + query.length;
+            }
         }
+        // No matches found
+        if (matches.length === 0) return;
+        // Go back to first match
+        if (currentMatchIndex >= matches.length) {
+            currentMatchIndex = 0;
+        }
+        const start = matches[currentMatchIndex];
+        if (start != undefined) {
+            code.focus();
+            code.setSelectionRange(start, start + query.length);
+        }
+        // Move to next match for next click
+        currentMatchIndex++;
     }
 }
 
-export function removeHighlight(span?: HTMLSpanElement) {
-    if (span) {
-        const parent = span.parentElement;
-        const text = span.firstChild;
-        if (text) {
-            parent?.insertBefore(text, span);
-        }
-        parent?.removeChild(span);
-        parent?.normalize();
-        return;
-    }
+export function removeHighlight() {
+    const code = document.querySelector(".code-area");
 
-    const highlights = document.querySelectorAll(".highlighted");
-    for (let highlight of highlights) {
-        const parent = highlight.parentElement;
-        const text = highlight.firstChild;
-        if (text) {
-            parent?.insertBefore(text, highlight);
-        }
-        parent?.removeChild(highlight);
+    if (code instanceof HTMLTextAreaElement) {
+        code.setSelectionRange(0, 0);
+        code.blur();
     }
+    // Reset search state
+    currentMatchIndex = 0;
+    matches = [];
+    previousQuery = "";
 }

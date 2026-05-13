@@ -54,7 +54,7 @@
                 <div class="menubar">
                     <ul class="menubar-list">
                         <li class="menubar-list-item">
-                            <button class="menu-button" aria-label="undo">
+                            <button class="menu-button" aria-label="undo" id="undo">
                                 <svg
                                     fill="white"
                                     xmlns="http://www.w3.org/2000/svg"
@@ -75,7 +75,7 @@
                             </button>
                         </li>
                         <li class="menubar-list-item">
-                            <button class="menu-button" aria-label="redo">
+                            <button class="menu-button" aria-label="redo" id="redo">
                                 <svg
                                     fill="white"
                                     xmlns="http://www.w3.org/2000/svg"
@@ -118,12 +118,13 @@
                         </li>
                         <li class="menubar-list-item current-users "></li>
                     </ul>
-                </div>
+                </div>  
                 <div class="content-area">
-                    <div
+                    <textarea    
+                        id="editor"
                         class="code-area"
                         contenteditable="plaintext-only"
-                    ></div>
+                    ></textarea>
                 </div>
             </main>
         </div>

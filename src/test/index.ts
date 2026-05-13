@@ -28,7 +28,7 @@ export async function runTest() {
     try {
         await addOperation({
             operationId: "op1",
-            documentId: 1,
+            documentId: "1",
             username: "user-1",
             type: "insert",
             position: { row: 5, column: 5 },

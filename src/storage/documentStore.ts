@@ -13,7 +13,6 @@ export function createDocument(name: string): Promise<void> {
             content: "",
             updatedAt: Date.now(),
         };
-
         const req = store.add(doc);
         //if succeeds then this else error
         req.onsuccess = () => resolve();

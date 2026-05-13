@@ -13,7 +13,7 @@ export type position = {
 };
 export type Operations = {
     operationId: string;
-    documentId: number;
+    documentId: string;
     username: string;
     type: OperationType;
     position: position;
@@ -23,7 +23,7 @@ export type Operations = {
 
 export type Cursor = {
     cursorId: string; // userId or tabId
-    documentId: number;
+    documentId: string;
     username: string;
     position: number;
     updatedAt: number;
@@ -31,10 +31,14 @@ export type Cursor = {
 
 export type Tab = {
     tabId: string;
-    documentId: number;
+    documentId: string;
     lastSeen: number;
 };
 
 export type User = {
     username: string;
+};
+export type ApplyOptions = {
+    broadcast?: boolean;
+    saveHistory?: boolean;
 };
