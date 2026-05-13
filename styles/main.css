@@ -38,9 +38,11 @@ main {
         box-shadow: 0 0 5px gray;
     }
 }
-.user-initials{
+
+.current-users {
     margin-left: auto;
 }
+
 .file-search-input {
     background-color: var(--color-dark);
     color: white;
@@ -74,7 +76,8 @@ main {
     display: flex;
     gap: var(--padding-md);
 }
-.user{
+
+.user {
     margin-left: -10px;
 }
 

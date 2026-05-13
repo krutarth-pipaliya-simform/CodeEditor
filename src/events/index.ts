@@ -1,7 +1,11 @@
+import { setupEditorEvents } from "./editorEvents.js";
+import endSearchButtonOnClick from "./endSearchButtonOnClick.js";
+import { setupHistoryEvents } from "./historyEvents.js";
+import lineNumberChangeEvent from "./lineNumberChangeEvent.js";
+import { renderEditor } from "./operations.js";
 import { createBroadcast } from "./broadCast.js";
 import { codeAreaChangeEvent } from "./codeAreaChangeEvent.js";
 import { createFileEvent } from "./createFIleEvent.js";
-import endSearchButtonOnClick from "./endSearchButtonOnClick.js";
 import { fileSelectionEvent } from "./fileSelectionEvent.js";
 import keyboardEvents from "./keyboardEvents.js";
 import { mouseMoveEvent } from "./mouseMoveEvent.js";
@@ -13,6 +17,10 @@ export function startEvents() {
     toggleSidebarEvent();
     searchButtonOnClick();
     endSearchButtonOnClick();
+    lineNumberChangeEvent();
+    renderEditor();
+    setupEditorEvents();
+    setupHistoryEvents();
     keyboardEvents();
     createBroadcast();
     mouseMoveEvent();

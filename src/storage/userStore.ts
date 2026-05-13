@@ -26,3 +26,14 @@ export function getUser(username: string): Promise<User | undefined> {
         req.onerror = () => reject(req.error);
     });
 }
+
+export function getAllUsers(): Promise<User[]> {
+    return new Promise((resolve, reject) => {
+        const tx = getDB().transaction("users", "readonly");
+        const store = tx.objectStore("users");
+        const req = store.getAll();
+
+        req.onsuccess = () => resolve(req.result);
+        req.onerror = () => reject(req.error);
+    });
+}

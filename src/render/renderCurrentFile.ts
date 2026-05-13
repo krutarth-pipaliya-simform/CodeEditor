@@ -4,10 +4,11 @@ let currentFile = "";
 
 export async function renderCurrentFile() {
     const codeArea = document.querySelector(".code-area");
-    if (!(codeArea instanceof HTMLDivElement)) return;
+    console.log("in render", codeArea);
+    if (!(codeArea instanceof HTMLTextAreaElement)) return;
     const currentDocument = await getDocument(getCurrentFile());
     if (!currentDocument) return;
-    codeArea.textContent = currentDocument.content;
+    codeArea.value = currentDocument.content;
 }
 
 export function getCurrentFile() {

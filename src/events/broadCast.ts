@@ -1,3 +1,4 @@
+import { getCurrentFile } from "../render/renderCurrentFile.js";
 import type { BroadcastData } from "../types/broadcastTypes.js";
 
 export const channel = new BroadcastChannel("pointer-channel");
@@ -7,6 +8,7 @@ const timerMap = new Map<string, number>();
 export function createBroadcast() {
     channel.onmessage = (m) => {
         let { user, top, left, documentName }: BroadcastData = m.data;
+        if (documentName !== getCurrentFile()) return;
         let existingPointer = document.querySelector(`#pointer${user}`);
         if (!existingPointer) {
             const pointer = document.createElement("div");
