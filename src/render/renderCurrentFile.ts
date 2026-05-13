@@ -16,5 +16,9 @@ export function getCurrentFile() {
 
 export async function setCurrentFile(fileName: string) {
     currentFile = fileName;
+    const currentFileDiv = document.querySelector(".current-file-name");
+    if (!(currentFileDiv instanceof HTMLDivElement))
+        throw new Error("Current file div not found");
+    currentFileDiv.textContent = fileName;
     await renderCurrentFile();
 }

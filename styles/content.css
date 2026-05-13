@@ -1,4 +1,15 @@
+.current-file-name {
+    min-height: 1rem;
+    color: var(--color-border);
+}
+
+.content-area {
+    display: flex;
+    flex-direction: column;
+}
+
 .code-area {
+    flex: 1;
     text-wrap: nowrap;
     width: 100%;
     overflow-x: auto;
