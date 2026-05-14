@@ -8,8 +8,11 @@ export async function renderCurrentFile() {
     if (!(codeArea instanceof HTMLTextAreaElement)) return;
     const currentDocument = await getDocument(getCurrentFile());
     if (!currentDocument) return;
+    currentDocument.undoStack ??= [];
+    currentDocument.redoStack ??= [];
+    console.log(currentDocument);
     await setContent();
-    codeArea.value = editorState.currentDocument.content;;
+    codeArea.value = editorState.currentDocument.content;
 }
 
 export function getCurrentFile() {

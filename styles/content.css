@@ -16,6 +16,7 @@
     border: none;
     color: white;
     overflow-x: auto;
+    font-family: "Courier New", Courier, monospace;
 }
 
 .code-area:focus {

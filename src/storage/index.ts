@@ -1,5 +1,5 @@
 const DB_NAME = "CodeEditor";
-const DB_VERSION = 1;
+const DB_VERSION = 3;
 
 let db: IDBDatabase | null = null;
 
@@ -8,50 +8,50 @@ export function initDB(): Promise<IDBDatabase> {
         const request = indexedDB.open(DB_NAME, DB_VERSION);
 
         request.onupgradeneeded = (event: IDBVersionChangeEvent) => {
-            try{
-            const target=event.target;
-            if(!target|| !(target instanceof IDBOpenDBRequest))
-            {
-                throw new Error ("Event not captured properly")
-            }
-            const db = target.result;
+            try {
+                const target = event.target;
+                if (!target || !(target instanceof IDBOpenDBRequest)) {
+                    throw new Error("Event not captured properly");
+                }
+                const db = target.result;
 
-            // Documents
-            if (!db.objectStoreNames.contains("documents")) {
-                const docStore = db.createObjectStore("documents", {
-                    keyPath: "id",
-                });
-                //unique by name
-                docStore.createIndex("title", "title", { unique: true });
-            }
+                // Documents
+                if (!db.objectStoreNames.contains("documents")) {
+                    const docStore = db.createObjectStore("documents", {
+                        keyPath: "id",
+                    });
+                    //unique by name
+                    docStore.createIndex("title", "title", { unique: true });
+                }
 
-            // Operations
-            if (!db.objectStoreNames.contains("operations")) {
-                const opStore = db.createObjectStore("operations", {
-                    keyPath: "operationId",
-                });
-                opStore.createIndex("documentId", "documentId", { unique: false });
-            }
+                // Operations
+                if (!db.objectStoreNames.contains("operations")) {
+                    const opStore = db.createObjectStore("operations", {
+                        keyPath: "operationId",
+                    });
+                    opStore.createIndex("documentId", "documentId", {
+                        unique: false,
+                    });
+                }
 
-            // Tabs
-            if (!db.objectStoreNames.contains("tabs")) {
-                db.createObjectStore("tabs", { keyPath: "tabId" });
-            }
+                // Tabs
+                if (!db.objectStoreNames.contains("tabs")) {
+                    db.createObjectStore("tabs", { keyPath: "tabId" });
+                }
 
-            // Users
-            if (!db.objectStoreNames.contains("users")) {
-               const userStore= db.createObjectStore("users", {
-                    keyPath: "username",
-                });
-                userStore.createIndex("username","username",{unique:true})
+                // Users
+                if (!db.objectStoreNames.contains("users")) {
+                    const userStore = db.createObjectStore("users", {
+                        keyPath: "username",
+                    });
+                    userStore.createIndex("username", "username", {
+                        unique: true,
+                    });
+                }
+            } catch (err) {
+                console.error(err);
             }
-        }
-        catch(err)
-        {
-            console.error(err)   
-        }
-    }
-        
+        };
 
         request.onsuccess = () => {
             db = request.result;

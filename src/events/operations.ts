@@ -3,15 +3,12 @@ import type { ApplyOptions, Operations } from "../types/storageTypes.js";
 import { sendOperation } from "./typingBroadcast.js";
 import { clearRedo, getInverseOperation, pushUndo } from "./history.js";
 import { positionToIndex } from "./utils.js";
-import {
-    getCurrentFile,
-    renderCurrentFile,
-} from "../render/renderCurrentFile.js";
 import { updateDocument } from "../storage/documentStore.js";
+
 
 const editor = document.querySelector<HTMLTextAreaElement>("#editor");
 
-export function applyOperation(
+export async function applyOperation(
     operation: Operations,
     options: ApplyOptions = {},
 ) {
@@ -48,7 +45,9 @@ export function applyOperation(
     document.content = content;
     document.updatedAt = Date.now();
     editorState.appliedOperations.add(operation.operationId);
-
+    await updateDocument(
+        document
+    );
     if (saveHistory) {
         const inverse = getInverseOperation(operation);
         pushUndo(inverse);
