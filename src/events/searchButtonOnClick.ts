@@ -8,7 +8,7 @@ export default function searchButtonOnClick() {
         e.preventDefault();
         const input = document.querySelector(".file-search-input");
         if (input instanceof HTMLInputElement) {
-            const value = input.value;
+            const value = input.value.trim();
             addHilghlight(value);
         }
         const endSearchButton = document.querySelector(
