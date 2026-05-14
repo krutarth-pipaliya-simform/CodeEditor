@@ -13,10 +13,11 @@ let previousValue = "";
 
 export function setupEditorEvents() {
     previousValue = editor.value;
-
     editor.addEventListener("input", handleInput);
 }
-
+export function resetPreviousValue() {
+    previousValue = editorState.currentDocument.content;
+}
 function handleInput() {
     const currentValue = editor.value;
 
@@ -41,20 +42,21 @@ function handleInput() {
     } else if (currentValue.length < previousValue.length) {
         const position = getRowColumn(previousValue, cursorIndex);
 
-        const deletedChar = previousValue[cursorIndex];
-
+        const deletedChar = previousValue.slice(
+            cursorIndex,
+            cursorIndex + (previousValue.length - currentValue.length),
+        );
         const operation: Operations = {
             operationId: generateRandomId(),
             documentId: getCurrentFile(),
             username,
             type: "delete",
             position,
-            value: deletedChar!,
+            value: deletedChar,
             timestamp: Date.now(),
         };
 
         applyOperation(operation);
     }
-
     previousValue = editorState.currentDocument.content;
 }

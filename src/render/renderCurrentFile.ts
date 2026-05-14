@@ -1,3 +1,5 @@
+import { resetPreviousValue } from "../events/editorEvents.js";
+import { renderEditor } from "../events/operations.js";
 import { getDocument } from "../storage/documentStore.js";
 import { editorState, setContent } from "../types/state.js";
 
@@ -12,6 +14,7 @@ export async function renderCurrentFile() {
     currentDocument.redoStack ??= [];
     await setContent();
     codeArea.value = editorState.currentDocument.content;
+    resetPreviousValue();
 }
 
 export function getCurrentFile() {
