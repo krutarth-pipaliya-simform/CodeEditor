@@ -1,4 +1,5 @@
 import { generateUser } from "./generateUser.js";
+import { setupPresenceListener, startHeartbeat } from "./presence.js";
 import { setUserInitials } from "./showUserInitials.js";
 
 export function showCustomPrompt() {
@@ -26,8 +27,10 @@ export function showCustomPrompt() {
                 if (value) {
                     dialog.close();
                     //on close of broadcast channel remove this user.
+
+                    startHeartbeat(value);
                     generateUser(value);
-                    setUserInitials();
+                    // setUserInitials();
                 } else {
                     alert("Please enter a valid name.");
                 }

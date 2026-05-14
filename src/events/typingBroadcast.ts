@@ -1,5 +1,5 @@
 import { getCurrentFile } from "../render/renderCurrentFile.js";
-import { editorState } from "../types/state.js";
+import { editorState, setContent } from "../types/state.js";
 import type { Operations } from "../types/storageTypes.js";
 import { applyOperation } from "./operations.js";
 

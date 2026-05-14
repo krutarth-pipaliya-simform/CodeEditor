@@ -1,10 +1,3 @@
-export type Document = {
-    id: string;
-    title: string;
-    content: string;
-    updatedAt: number;
-};
-
 export type OperationType = "insert" | "update" | "delete";
 
 export type position = {
@@ -20,7 +13,14 @@ export type Operations = {
     value: string;
     timestamp: number;
 };
-
+export type Document = {
+    id: string;
+    title: string;
+    content: string;
+    updatedAt: number;
+    undoStack: Operations[];
+    redoStack: Operations[];
+};
 export type Cursor = {
     cursorId: string; // userId or tabId
     documentId: string;

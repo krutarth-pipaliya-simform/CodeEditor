@@ -10,7 +10,7 @@ export async function renderFiles() {
     if (!res) return;
     res.forEach(async (ele) => {
         const li = createLi(ele.title);
-        if (!getCurrentFile()) {
+       if (!getCurrentFile() || getCurrentFile() === ele.title) {
             await setCurrentFile(ele.title);
             li.classList.add("selected-file");
         }

@@ -1,3 +1,4 @@
+import { redo, undo } from "../events/history.js";
 import { generateRandomId } from "../events/randomIdGenerator.js";
 import { getDB } from "../storage/index.js";
 import type { Document } from "../types/storageTypes.js";
@@ -12,6 +13,8 @@ export function createDocument(name: string): Promise<void> {
             title: name,
             content: "",
             updatedAt: Date.now(),
+            undoStack: [],
+            redoStack: [],
         };
         const req = store.add(doc);
         //if succeeds then this else error

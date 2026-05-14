@@ -1,5 +1,6 @@
+import { getDocument, updateDocument } from "../storage/documentStore.js";
 import { editorState } from "../types/state.js";
-import type { Operations } from "../types/storageTypes.js";
+import type { Document, Operations } from "../types/storageTypes.js";
 import { applyOperation } from "./operations.js";
 import { generateRandomId } from "./randomIdGenerator.js";
 
@@ -24,37 +25,35 @@ export function getInverseOperation(operation: Operations): Operations {
 }
 
 export function pushUndo(operation: Operations) {
-    editorState.undoStack.push(operation);
+    
+    editorState.currentDocument.undoStack.push(operation);
 }
 
 export function pushRedo(operation: Operations) {
-    editorState.redoStack.push(operation);
+    editorState.currentDocument.redoStack.push(operation);
 }
 
 export function clearRedo() {
-    editorState.redoStack = [];
+    editorState.currentDocument.redoStack = [];
 }
-
-export function undo() {
-    console.log("Hello");
-    const operation = editorState.undoStack.pop();
+export async function undo() {
+    const operation = editorState.currentDocument.undoStack.pop();
 
     if (!operation) return;
 
     const redoOperation = getInverseOperation(operation);
-    applyOperation(operation, {
+    await applyOperation(operation, {
         broadcast: true,
         saveHistory: false,
     });
-
     pushRedo(redoOperation);
 }
 
-export function redo() {
-    const operation = editorState.redoStack.pop();
+export async function redo() {
+    const operation = editorState.currentDocument.redoStack.pop();
     if (!operation) return;
     const undoOperation = getInverseOperation(operation);
-    applyOperation(operation, {
+    await applyOperation(operation, {
         broadcast: true,
         saveHistory: false,
     });

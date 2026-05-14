@@ -8,7 +8,6 @@ export function codeAreaChangeEvent() {
         const currentDocument = await getDocument(getCurrentFile());
         if (!currentDocument) return;
         currentDocument.content = codeArea.value;
-        console.log(currentDocument.content, currentDocument);
         await updateDocument(currentDocument);
     });
 }

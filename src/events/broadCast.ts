@@ -7,7 +7,10 @@ export const channel = new BroadcastChannel("pointer-channel");
 const timerMap = new Map<string, number>();
 
 export function createBroadcast() {
-    channel.onmessage = (m) => {
+    channel.addEventListener("message", (m) => {
+        if (
+            m.data.type !== "pointer"
+        ) return;
         let { user, top, left, documentName }: BroadcastData = m.data;
         if (documentName !== getCurrentFile()) return;
         let existingPointer = document.querySelector(`#pointer${user}`);
@@ -36,7 +39,7 @@ export function createBroadcast() {
             existingPointer.remove();
         }, 5000);
         timerMap.set(user, timer);
-    };
+    });
 
     fileAddChannel.onmessage = (m) => {
         renderFiles();

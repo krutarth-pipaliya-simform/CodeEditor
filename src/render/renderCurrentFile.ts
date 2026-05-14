@@ -1,14 +1,20 @@
+import { resetPreviousValue } from "../events/editorEvents.js";
+import { renderEditor } from "../events/operations.js";
 import { getDocument } from "../storage/documentStore.js";
+import { editorState, setContent } from "../types/state.js";
 
 let currentFile = "";
 
 export async function renderCurrentFile() {
     const codeArea = document.querySelector(".code-area");
-    console.log("in render", codeArea);
     if (!(codeArea instanceof HTMLTextAreaElement)) return;
     const currentDocument = await getDocument(getCurrentFile());
     if (!currentDocument) return;
-    codeArea.value = currentDocument.content;
+    currentDocument.undoStack ??= [];
+    currentDocument.redoStack ??= [];
+    await setContent();
+    codeArea.value = editorState.currentDocument.content;
+    resetPreviousValue();
 }
 
 export function getCurrentFile() {

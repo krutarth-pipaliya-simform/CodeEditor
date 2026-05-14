@@ -4,7 +4,6 @@ export function createFileEvent() {
     createButton.addEventListener("click", async () => {
         const prompt = document.getElementById("custom-prompt-file");
         if (!(prompt instanceof HTMLDialogElement)) return;
-        console.log("Hello");
         prompt.showModal();
     });
 }
