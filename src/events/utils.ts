@@ -1,7 +1,3 @@
-export function generateId() {
-    return crypto.randomUUID();
-}
-
 export function getRowColumn(
     text: string,
     index: number

@@ -36,13 +36,6 @@ export function pushRedo(operation: Operations) {
 export function clearRedo() {
     editorState.currentDocument.redoStack = [];
 }
-export function normalizeDocument(doc: Document): Document {
-    return {
-        ...doc,
-        undoStack: doc.undoStack ?? [],
-        redoStack: doc.redoStack ?? [],
-    };
-}
 export async function undo() {
     const operation = editorState.currentDocument.undoStack.pop();
 
