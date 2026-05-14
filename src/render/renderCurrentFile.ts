@@ -10,7 +10,6 @@ export async function renderCurrentFile() {
     if (!currentDocument) return;
     currentDocument.undoStack ??= [];
     currentDocument.redoStack ??= [];
-    console.log(currentDocument);
     await setContent();
     codeArea.value = editorState.currentDocument.content;
 }
