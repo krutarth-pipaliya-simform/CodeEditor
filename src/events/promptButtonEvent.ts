@@ -1,9 +1,11 @@
+import { getCurrentFile, setCurrentFile } from "../render/renderCurrentFile.js";
 import { createDocument } from "../storage/documentStore.js";
 import { fileAddChannel } from "./broadCast.js";
 
 export function promptButtonEvent() {
     const button = document.getElementById("add-file");
     if (!(button instanceof HTMLButtonElement)) return;
+
     button.addEventListener("click", async () => {
         const input = document.getElementById("file-input");
         const list = document.querySelector(".file-list");
@@ -15,26 +17,36 @@ export function promptButtonEvent() {
             !(list instanceof HTMLUListElement)
         )
             throw new Error("Please check th DOM structure.");
+
         const fileName = input.value;
+
         if (checkDuplicateFileName(fileName)) {
             alert(
                 `File with the ${fileName} name already exists please change the name`,
             );
             return;
         }
+
         if (fileName.length < 3) {
             alert("Min length of 3 required.");
             return;
         }
+
         try {
             await createDocument(fileName);
         } catch (error) {
             console.log("error", error);
         }
 
-        list.appendChild(createLi(fileName));
         fileAddChannel.postMessage("render-again");
         prompt.close();
+
+        const liElement = createLi(fileName);
+        if (getCurrentFile() === "") {
+            setCurrentFile(fileName);
+            liElement.classList.add("selected-file");
+        }
+        list.appendChild(liElement);
     });
 }
 
